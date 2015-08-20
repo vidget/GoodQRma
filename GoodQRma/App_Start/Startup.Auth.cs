@@ -58,11 +58,17 @@ namespace GoodQRma
                appId: "1668187400095203",
                appSecret: "59c400099a40bffc4bbac58731c21db9");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+
+
+
+
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "359498959611-8iq2oss06sa32rebn6oi417rkpo9c5r9.apps.googleusercontent.com",
+                ClientSecret = "mxpWYhAkpEL4w_IhbjeSP9vy",
+                Provider = new GoogleOAuth2AuthenticationProvider()
+                //CallbackPath = new PathString("/Account/Register")
+            });
         }
     }
 }

@@ -423,6 +423,15 @@ namespace GoodQRma.Controllers
             base.Dispose(disposing);
         }
 
+
+        //Added for Google
+        [AllowAnonymous]
+        public ActionResult ExternalLoginCallbackRedirect(string returnUrl)
+        {
+            return RedirectPermanent("/Account/ExternalLoginCallback#_=_");
+        }
+
+
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
