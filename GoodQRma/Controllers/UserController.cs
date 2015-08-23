@@ -28,7 +28,9 @@ namespace GoodQRma.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+
+            User user = db.Users.Include(s => s.Files).SingleOrDefault(s => s.userID == id);
+            //User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -47,10 +49,28 @@ namespace GoodQRma.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,profilePic,profileName,address1,address2,city,state,zipCode,country,phone,email,webURL1,webURL2,webURL3")] User user)
+        public ActionResult Create([Bind(Include = "userID,profilePic,profileName,address1,address2,city,state,zipCode,country,phone,email,webURL1,webURL2,webURL3")] User user, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var avatar = new File
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Avatar,
+                        ContentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        avatar.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    user.Files = new List<File> { avatar };
+                }
+
+
+
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");

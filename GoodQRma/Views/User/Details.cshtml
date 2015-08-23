@@ -6,20 +6,37 @@
 
 <h2>@Html.DisplayFor(model => model.profileName)</h2>
 
+
+@if (Model.Files.Any(f => f.FileType == FileType.Avatar))
+{
+    <dt>
+       
+    </dt>
+    <dd>
+        <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).FileId" alt="avatar" />
+    </dd>
+}
+
+
 <div>
-    <h4>User</h4>
+    @*<h4>User</h4>*@
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.profilePic)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.profilePic)
-        </dd>
+        @*@if (Model.Files.Any(f => f.FileType == FileType.Avatar))
+        {
+            <dt>
+                Profile Pic
+            </dt>
+            <dd>
+                <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).FileId" alt="avatar" />
+            </dd>
+        }*@
+
+
 
         <dt>
-            @Html.DisplayNameFor(model => model.profileName)
+            Profile Name
         </dt>
 
         <dd>
@@ -27,7 +44,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.address1)
+           Address 
         </dt>
 
         <dd>

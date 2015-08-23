@@ -161,6 +161,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\eventLogController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -173,10 +174,20 @@
     <Compile Include="Migrations\201508230314219_InitialCreate.Designer.cs">
       <DependentUpon>201508230314219_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508230358557_Files.cs" />
+    <Compile Include="Migrations\201508230358557_Files.Designer.cs">
+      <DependentUpon>201508230358557_Files.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508230420129_newFiles.cs" />
+    <Compile Include="Migrations\201508230420129_newFiles.Designer.cs">
+      <DependentUpon>201508230420129_newFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\eventLog.cs" />
+    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\User.cs" />
@@ -270,6 +281,15 @@
     <EmbeddedResource Include="Migrations\201508230314219_InitialCreate.resx">
       <DependentUpon>201508230314219_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508230358557_Files.resx">
+      <DependentUpon>201508230358557_Files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508230420129_newFiles.resx">
+      <DependentUpon>201508230420129_newFiles.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\File\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

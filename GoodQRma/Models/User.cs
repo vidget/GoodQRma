@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using GoodQRma.Models;
+using System.Collections.Generic;
 
 namespace GoodQRma.Models
 {
@@ -23,6 +24,7 @@ namespace GoodQRma.Models
         public virtual string webURL2 { get; set; }
         public virtual string webURL3 { get; set; }
 
+        public virtual ICollection<File> Files { get; set; }
 
         //public User()
         //{
