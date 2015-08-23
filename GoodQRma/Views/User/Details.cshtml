@@ -23,15 +23,7 @@
     <hr />
     <dl class="dl-horizontal">
 
-        @*@if (Model.Files.Any(f => f.FileType == FileType.Avatar))
-        {
-            <dt>
-                Profile Pic
-            </dt>
-            <dd>
-                <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).FileId" alt="avatar" />
-            </dd>
-        }*@
+       
 
 
 
@@ -51,16 +43,16 @@
             @Html.DisplayFor(model => model.address1)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.address2)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.address2)
-        </dd>
+        </dd>*@
 
         <dt>
-            @Html.DisplayNameFor(model => model.city)
+            City
         </dt>
 
         <dd>
@@ -68,7 +60,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.state)
+           State
         </dt>
 
         <dd>
@@ -76,7 +68,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.zipCode)
+            Zip Code
         </dt>
 
         <dd>
@@ -84,7 +76,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.country)
+            Country
         </dt>
 
         <dd>
@@ -92,7 +84,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.phone)
+            Phone Number
         </dt>
 
         <dd>
@@ -107,7 +99,7 @@
             @Html.DisplayFor(model => model.email)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.webURL1)
         </dt>
 
@@ -129,11 +121,11 @@
 
         <dd>
             @Html.DisplayFor(model => model.webURL3)
-        </dd>
+        </dd>*@
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.userID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to User List", "Index")
 </p>

@@ -1,19 +1,18 @@
 ﻿@model IEnumerable<GoodQRma.Models.User>
+@*@model GoodQRma.Models.User*@
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>User List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.profilePic)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.profileName)
         </th>
@@ -55,9 +54,7 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.profilePic)
-        </td>
+            
         <td>
             @Html.DisplayFor(modelItem => item.profileName)
         </td>
@@ -95,9 +92,9 @@
             @Html.DisplayFor(modelItem => item.webURL3)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.userID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.userID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.userID })
+            @Html.ActionLink("Edit User", "Edit", new { id=item.userID }) |
+            @Html.ActionLink("Profile", "Details", new { id=item.userID }) |
+            @Html.ActionLink("Delete User", "Delete", new { id=item.userID })
         </td>
     </tr>
 }
