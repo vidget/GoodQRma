@@ -1,0 +1,122 @@
+﻿@model GoodQRma.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.profileName)</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.profilePic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profilePic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.profileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.webURL1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.webURL1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.webURL2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.webURL2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.webURL3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.webURL3)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.userID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

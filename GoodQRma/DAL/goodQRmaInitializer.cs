@@ -9,7 +9,7 @@ using GoodQRma.Models;
 namespace GoodQRma.DAL
 {
    
-        public class goodQRmaInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<goodQRmaContext>
+        public class goodQRmaInitializer : System.Data.Entity.DropCreateDatabaseAlways<goodQRmaContext>
         {
 
             protected override void Seed(goodQRmaContext context)
@@ -24,16 +24,16 @@ namespace GoodQRma.DAL
                         address2 ="",city="Dearborn",state="Michigan",zipCode="48124",country="USA",
                         phone ="313-516-1559", webURL1 = "www.yahoo.com", webURL2 = "www.google.com", webURL3 = "www.amazon.com", },
 
-                    new User{userID=2,profileName ="Nile",address1 = "4752 Palmer", 
+                    new User{userID=2,profileName ="Steve",address1 = "4752 Palmer", 
                         address2 ="",city="Dearborn",state="Michigan",zipCode="48126",country="USA",
                         phone ="313-555-1129", webURL1 = "www.ebay.com", webURL2 = "www.cnn.com", webURL3 = "www.craigslist.com", },
 
 
-                     new User{userID=2,profileName ="Hemma",address1 = "7324 St.Marys", 
+                     new User{userID=2,profileName ="Paul",address1 = "7324 St.Marys", 
                         address2 ="",city="Detroit",state="Michigan",zipCode="48128",country="USA",
                         phone ="313-555-2319", webURL1 = "www.time.com", webURL2 = "www.ebay.com", webURL3 = "www.clickondetroit.com", },
 
-                    new User{userID=1,profileName ="Derrick",address1 = "22859 Beech", 
+                    new User{userID=1,profileName ="Jimbo",address1 = "22859 Beech", 
                         address2 ="",city="Dearborn",state="Michigan",zipCode="48124",country="USA",
                         phone ="313-516-1459", webURL1 = "www.yahoo.com", webURL2 = "www.google.com", webURL3 = "www.amazon.com", },
 
@@ -65,6 +65,7 @@ namespace GoodQRma.DAL
                         description ="Come help us clean up the old Rouge River, volunteers will be helping to remove old shopping carts and garbage from the river. Dress warm and bring extra dry clothes", 
                         eventDate=DateTime.Now, 
                         eventTime=DateTime.Now, 
+                        eventType="Clean Up",
                         address1 ="22051 Cherry Hill Street",
                         address2="",city="Dearborn",
                         state ="Michigan",
@@ -99,9 +100,7 @@ namespace GoodQRma.DAL
                         eventURL="http://www.cityofdearborn.org/community/recreation-parks/outdoor-pools"
                     },
 
-                    
-
-
+                                        
                     new Event
                     {   
                         eventID=3,

@@ -149,9 +149,20 @@ namespace GoodQRma.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
+            //var user = new ApplicationUser() { UserName = model.UserName, BirthDate = model.BirthDate };
+
+
+
+
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //CHANGED THIS PART OF THE CODE TO ADD the address
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, address1 = model.address1 };
+
+
+
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

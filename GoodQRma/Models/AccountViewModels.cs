@@ -78,7 +78,37 @@ namespace GoodQRma.Models
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+
+
+
+
         public string ConfirmPassword { get; set; }
+
+
+        public string profileName { get; set; }
+
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Address")]
+        public string address1 { get; set; }
+
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "State")]
+        public string state { get; set; }
+        //public string city { get; set; }
+       // public string zipCode { get; set; }
+        //public string email { get; set; }
+
+
+
+
+
+
+
+
     }
 
     public class ResetPasswordViewModel

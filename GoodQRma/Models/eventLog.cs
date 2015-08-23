@@ -7,19 +7,19 @@ namespace GoodQRma.Models
 {
     public class eventLog
     {
-
-        private int userID { get; set; }
-        private int eventID { get; set; }
-
-
-        public eventLog()
-        {
-
-            userID = 0;
-            eventID = 0;
+        public virtual int eventLogID { get; set; }
+        public virtual int userID { get; set; }
+        public virtual int eventID { get; set; }
 
 
-        }
+        //public eventLog()
+        //{
+        //    eventLogID = 0;
+        //    userID = 0;
+        //    eventID = 0;
+
+
+        //}
 
     }
 }
