@@ -24,6 +24,7 @@ namespace GoodQRma.Models
         public virtual string webURL3 { get; set; }
 
         public virtual ICollection<File> Files { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
 
         //public User()
         //{

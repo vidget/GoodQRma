@@ -34,6 +34,8 @@ namespace GoodQRma.Models
 
         public virtual string eventURL { get; set; }
 
+        public virtual ICollection<User> Users { get; set; }
+
 
 
 

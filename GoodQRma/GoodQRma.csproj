@@ -160,13 +160,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EventController.cs" />
-    <Compile Include="Controllers\eventLogController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\goodQRmaContext.cs" />
-    <Compile Include="DAL\goodQRmaInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,10 +180,13 @@
     <Compile Include="Migrations\201508230420129_newFiles.Designer.cs">
       <DependentUpon>201508230420129_newFiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508241706496_joinUserEvent.cs" />
+    <Compile Include="Migrations\201508241706496_joinUserEvent.Designer.cs">
+      <DependentUpon>201508241706496_joinUserEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\eventLog.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -195,9 +196,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-GoodQRma-20150817020919.mdf" />
-    <Content Include="App_Data\aspnet-GoodQRma-20150817020919_log.ldf">
-      <DependentUpon>aspnet-GoodQRma-20150817020919.mdf</DependentUpon>
+    <Content Include="App_Data\goodQRmaDB.mdf" />
+    <Content Include="App_Data\goodQRmaDB_log.ldf">
+      <DependentUpon>goodQRmaDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -260,11 +261,6 @@
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
-    <Content Include="Views\eventLog\Create.cshtml" />
-    <Content Include="Views\eventLog\Delete.cshtml" />
-    <Content Include="Views\eventLog\Details.cshtml" />
-    <Content Include="Views\eventLog\Edit.cshtml" />
-    <Content Include="Views\eventLog\Index.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
@@ -287,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508230420129_newFiles.resx">
       <DependentUpon>201508230420129_newFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508241706496_joinUserEvent.resx">
+      <DependentUpon>201508241706496_joinUserEvent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

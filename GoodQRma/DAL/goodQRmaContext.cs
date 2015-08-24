@@ -13,12 +13,16 @@ namespace GoodQRma.DAL
     {
         public DbSet<Event> Events { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<eventLog> eventLog { get; set; }
         public DbSet<File> Files { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Event>()
+                .HasMany<User>(e => e.Users).WithMany(u => u.Events)
+                .Map(t => t.MapLeftKey("EventID").MapRightKey("UserID")
+                .ToTable("AttendanceLog"));
         }
     }
 } 
