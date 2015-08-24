@@ -95,6 +95,8 @@ namespace GoodQRma.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            
             User user = db.Users.Include(s => s.Files).SingleOrDefault(s => s.userID == id);
 
             //User user = db.Users.Find(id);
@@ -106,14 +108,12 @@ namespace GoodQRma.Controllers
         }
 
 
-
-
         // POST: User/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userID,profilePic,profileName,address1,address2,city,state,zipCode,country,phone,email,webURL1,webURL2,webURL3")] User user)
+        public ActionResult Edit([Bind(Include = "userID,profilePic,profileName,address1,address2,city,state,zipCode,country,phone,email,webURL1,webURL2,webURL3")] User user,HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -124,7 +124,72 @@ namespace GoodQRma.Controllers
             return View(user);
         }
 
+
+
+
+
+        // POST: User/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit(int? id,[Bind(Include = "userID,profilePic,profileName,address1,address2,city,state,zipCode,country,phone,email,webURL1,webURL2,webURL3")] User user, HttpPostedFileBase upload)
+        //{
+        //    var userToUpdate = db.Users.Find(id);
+
+        //    if (ModelState.IsValid)
+        //    {
+                                
+
+        //        if (upload != null && upload.ContentLength > 0)
+        //                 {
+
+        //                     Checks to see if there is currently a picture in the file if there is it removes it from the database before putting the new one in.
+        //                     if (userToUpdate.Files.Any(f => f.FileType == FileType.Avatar))
+        //                     {
+        //                         removes the picture from the database
+        //                         db.Files.Remove(user.Files.First(f => f.FileType == FileType.Avatar));
+        //                     }
+
+        //                     creates a new image
+        //                     var avatar = new File
+        //                     {
+        //                         FileName = System.IO.Path.GetFileName(upload.FileName),
+        //                         FileType = FileType.Avatar,
+        //                         ContentType = upload.ContentType
+        //                     };
+        //                     converts it to bytes to store in the database as byte
+        //                     using (var reader = new System.IO.BinaryReader(upload.InputStream))
+        //                     {
+        //                         avatar.Content = reader.ReadBytes(upload.ContentLength);
+        //                     }
+        //                     userToUpdate.Files = new List<File> { avatar };
+        //                  }
+
+                 
+        //        db.Entry(userToUpdate).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //           return RedirectToAction("Index");
+        //    }
+        //    return View(userToUpdate);
+        //}
+
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         //// POST: User/Edit/5
@@ -177,7 +242,7 @@ namespace GoodQRma.Controllers
         //        //db.Users(userToUpdate).State = EntityState.Modified;
 
                  
-        //        db.Entry(userToUpdate).State = EntityState.Modified;
+        //        db.Entry(userT).State = EntityState.Modified;
         //        db.SaveChanges();
                 
 
@@ -189,60 +254,8 @@ namespace GoodQRma.Controllers
         //}
 
 
-
-
-
-
-
-
-
-        //    //[Bind(Include = "userID,profilePic,profileName,address1,address2,city,state,zipCode,country,phone,email,webURL1,webURL2,webURL3")] )
-        //{
-        //    User userToUpdate = db.Users.Find(id);
-        //    //User user = db.Users.Find(id);
-
-        //    if (ModelState.IsValid)
-        //    {
-
-        //        try
-        //        {
-
-
-        //            if (upload != null && upload.ContentLength > 0)
-        //            {
-        //                if (userToUpdate.Files.Any(f => f.FileType == FileType.Avatar))
-        //                {
-        //                    db.Files.Remove(userToUpdate.Files.First(f => f.FileType == FileType.Avatar));
-        //                }
-        //                var avatar = new File
-        //                {
-        //                    FileName = System.IO.Path.GetFileName(upload.FileName),
-        //                    FileType = FileType.Avatar,
-        //                    ContentType = upload.ContentType
-        //                };
-        //                using (var reader = new System.IO.BinaryReader(upload.InputStream))
-        //                {
-        //                    avatar.Content = reader.ReadBytes(upload.ContentLength);
-        //                }
-        //                userToUpdate.Files = new List<File> { avatar };
-        //            }
-
-
-
-        //            db.Entry(userToUpdate).State = EntityState.Modified;
-        //            db.SaveChanges();
-        //            return RedirectToAction("Index");
-        //        }
-        //        catch
-        //        {
-
-
-        //        }
-
-        //    }
-        //    return View(userToUpdate);
-        //}
-
+        
+      
         // GET: User/Delete/5
         public ActionResult Delete(int? id)
         {

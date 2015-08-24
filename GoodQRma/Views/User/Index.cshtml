@@ -12,6 +12,8 @@
 </p>
 <table class="table">
     <tr>
+
+
        
         <th>
             @Html.DisplayNameFor(model => model.profileName)
@@ -52,9 +54,15 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
-            
+
+
+
+        
+        
+        
         <td>
             @Html.DisplayFor(modelItem => item.profileName)
         </td>
@@ -92,9 +100,9 @@
             @Html.DisplayFor(modelItem => item.webURL3)
         </td>
         <td>
-            @Html.ActionLink("Edit User", "Edit", new { id=item.userID }) |
-            @Html.ActionLink("Profile", "Details", new { id=item.userID }) |
-            @Html.ActionLink("Delete User", "Delete", new { id=item.userID })
+            @Html.ActionLink("Edit User", "Edit", new { id = item.userID }) |
+            @Html.ActionLink("Profile", "Details", new { id = item.userID }) |
+            @Html.ActionLink("Delete User", "Delete", new { id = item.userID })
         </td>
     </tr>
 }

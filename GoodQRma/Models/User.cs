@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using GoodQRma.Models;
-using System.Collections.Generic;
 
 namespace GoodQRma.Models
 {

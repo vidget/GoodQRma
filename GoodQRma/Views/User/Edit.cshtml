@@ -4,10 +4,11 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit Profile</h2>
 
 
 @using (Html.BeginForm("Edit", "User", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+
 
 {
     @Html.AntiForgeryToken()
@@ -28,12 +29,12 @@
     </div>
 }
 
-    @*<div class="form-group">
+    <div class="form-group">
             @Html.Label("Avatar", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="file" id="Avatar" name="upload" />
             </div>
-        </div>*@
+        </div>
 
 
 
