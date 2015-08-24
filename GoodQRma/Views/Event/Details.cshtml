@@ -4,164 +4,135 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Html.DisplayFor(model => model.name)</h2>
+
+<script>
+    function initialize() {
+        var mapProp = {
+            center: new google.maps.LatLng(@Model.gpsLat, @Model.gpsLong),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+    }
+
+    function loadScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://maps.googleapis.com/maps/api/js?key=&sensor=false&callback=initialize";
+        document.body.appendChild(script);
+    }
+
+    window.onload = loadScript;
+</script>
+
+
+<div id="googleMap" style="width:250px;height:250px;"></div>
 
 <div>
-    <h4>Event</h4>
+    <h4>@Html.DisplayFor(model => model.name)</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.userID)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.userID)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.image)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.description)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.description)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.eventType)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.eventType)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.eventDate)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.eventDate)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.eventTime)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.eventTime)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.numVolunteersNeeded)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.numVolunteersNeeded)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.address1)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.address1)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.address2)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.address2)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.city)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.city)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.state)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.state)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.zipCode)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.zipCode)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.country)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.country)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.contact)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.contact)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.phone)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.phone)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.gpsLong)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.gpsLong)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.gpsLat)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.gpsLat)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.eventURL)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.eventURL)
         </dd>
-
     </dl>
 </div>
 <p>
