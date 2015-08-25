@@ -1,141 +1,145 @@
-﻿@model IEnumerable<GoodQRma.Models.Event>
-
+﻿@model GoodQRma.Models.Event
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Details";
 }
+<!--42.3358794, -83.0497453 Model.gpsLat, Model.gpsLong-->
 
-<h2>Index</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find GoodQRma</title>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.userID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
+        var myCenter = new google.maps.LatLng(@Model.gpsLat, @Model.gpsLong);
+        var marker;
+        function initialize() {
+            var mapProp = {
+                center: myCenter,
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+                animation: google.maps.Animation.BOUNCE
+            });
+            marker.setMap(map);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+<body>
+    <div id="googleMap" style="width:1050px;height:300px;"></div>
+</body>
+</html>
+
+
+<div>
+    <h4>@Html.DisplayFor(model => model.name)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
             @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.eventType)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eventType)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.eventDate)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eventDate)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.eventTime)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eventTime)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.numVolunteersNeeded)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.numVolunteersNeeded)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.address1)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.address1)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.address2)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.address2)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.city)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.state)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.zipCode)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.zipCode)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.country)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.contact)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.contact)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.phone)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.gpsLong)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.gpsLong)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.gpsLat)
-        </th>
-        <th>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.gpsLat)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.eventURL)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.userID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.eventType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.eventDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.eventTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.numVolunteersNeeded)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.address1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.address2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.city)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.state)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.zipCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.contact)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.gpsLong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.gpsLat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.eventURL)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.eventID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.eventID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.eventID })
-        </td>
-    </tr>
-}
-
-</table>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eventURL)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.eventID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
