@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GoodQRma.DAL;
-using System.Web.Mvc;
 
 namespace GoodQRma.Controllers
 {

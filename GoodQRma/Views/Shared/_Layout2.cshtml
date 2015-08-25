@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Layout2</title>
+</head>
+<body>
+    <center>
+
+
+
+
+
+
+        <div>
+        </div>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+
+            <p>&copy; @DateTime.Now.Year - GoodQRma</p>
+
+
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/themes/base/css")
+        @RenderSection("scripts", required: false)
+
+
+    </center>
+
+        </body>
+</html>

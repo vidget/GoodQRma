@@ -28,14 +28,26 @@
 </script>
 
 
+
 <div id="googleMap" style="width:250px;height:250px;"></div>
 
 <div>
     <h4>@Html.DisplayFor(model => model.name)</h4>
+
+    
+        
+
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=http://maps.google.com?q=@Model.address1,@Model.city,@Model.state,@Model.zipCode" />
+
+    
+    
+
     <hr />
     <dl class="dl-horizontal">
 
-
+       
+            
+        
 
         <dt>
             @Html.DisplayNameFor(model => model.description)
@@ -136,6 +148,9 @@
     </dl>
 </div>
 <p>
+
+    @Html.ActionLink("Event Posters", "EventPoster",new { id =Model.eventID }) 
+
     @Html.ActionLink("Edit", "Edit", new { id = Model.eventID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

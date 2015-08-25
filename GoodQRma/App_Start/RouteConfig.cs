@@ -27,6 +27,17 @@ namespace GoodQRma
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
+
+        //    routes.MapRoute(
+        //name: "Poster",
+        //url: "{controller}/{action}/{id}",
+        //defaults: new { controller = "Event", action = "EventPoster", id = 1 }
+
+        //);
+
+
         }
     }
 }

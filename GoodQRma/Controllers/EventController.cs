@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using GoodQRma.DAL;
 using GoodQRma.Models;
+using Rotativa;
 
 namespace GoodQRma.Controllers
 {
@@ -19,6 +20,37 @@ namespace GoodQRma.Controllers
         public ActionResult Index()
         {
             return View(db.Events.ToList());
+        }
+
+
+
+
+
+
+
+
+
+        public ActionResult EventPoster(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+
+            Event @event = db.Events.Find(id);
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+
+
+
+            //return new RouteAsPdf("Poster", new { name = "EventPoster" }) { FileName = "Poster.pdf" };
+
+
+            return View("EventPoster", "_Layout2", @event);
         }
 
         // GET: Event/Details/5
