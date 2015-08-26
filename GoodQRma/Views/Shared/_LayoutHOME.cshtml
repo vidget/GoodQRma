@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - GoodQRma</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <img src="~/Images/GoodQRma_logo.png" />
+
+                @Html.ActionLink("GoodQRma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("View Users", "Index", "User")</li>
+                    <li>@Html.ActionLink("Create User", "Create", "User")</li>
+                    <li>@Html.ActionLink("View Event", "Index", "Event")</li>
+                    <li>@Html.ActionLink("Create Event", "Create", "Event")</li>
+                   
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+        
+    <!-- Half Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                @*<div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>*@
+                <div class="fill" style="background-image:url(http://img.eliteemail.com/emusers/39323/volunteer.GIF);"></div>
+                <div class="carousel-caption">
+                    @*<h2>Caption 1</h2>*@
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url(http://smh.schools.smcdsb.on.ca/UserFiles/Servers/Server_6/Image/Elementary%20Schools/SMH%20-%20Saint%20Mary/Clip%20Art/volunteers.gif);"></div>
+                <div class="carousel-caption">
+                    @*<h2>Caption 2</h2>*@
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://comps.canstockphoto.com/can-stock-photo_csp11740221.jpg');"></div>
+                <div class="carousel-caption">
+                    @*<h2>Caption 3</h2>*@
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+            
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <center>
+                    <p>&copy; @DateTime.Now.Year - GoodQRma.com</p>
+                    <img src="~/Images/GoodQRma_logo.png" />
+                </center>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/themes/base/css")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

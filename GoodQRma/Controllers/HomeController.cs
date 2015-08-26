@@ -10,7 +10,10 @@ namespace GoodQRma.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+
+
+            return View("Index", "_LayoutHOME");
+           
         }
 
         public ActionResult About()
