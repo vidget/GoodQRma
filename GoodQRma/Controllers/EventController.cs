@@ -22,14 +22,7 @@ namespace GoodQRma.Controllers
             return View(db.Events.ToList());
         }
 
-
-
-
-
-
-
-
-
+                
         public ActionResult EventPoster(int? id)
         {
             if (id == null)
