@@ -51,6 +51,6 @@ namespace GoodQRma.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<GoodQRma.Models.ApplicationUser> ApplicationUsers { get; set; }
+        public System.Data.Entity.DbSet<GoodQRma.Models.User> User { get; set; }
     }
-}
+} 
