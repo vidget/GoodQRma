@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace GoodQRma.Models
 {
@@ -64,10 +65,60 @@ namespace GoodQRma.Models
 
     public class RegisterViewModel
     {
+        public  byte profilePic { get; set; }
+        public  int userID { get; set; }
+        public  string profileName { get; set; }
+
+
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Address")]
+        public string address1 { get; set; }
+
+
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Address2")]
+        public  string address2 { get; set; }
+
+
+
+
+        public  string city { get; set; }
+
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "State")]
+        public string state { get; set; }
+
+
+
+        public  string zipCode { get; set; }
+
+
+        public  string country { get; set; }
+
+
+        public  string phone { get; set; }
+
+
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+           
+        
+
+        public  string webURL1 { get; set; }
+        public  string webURL2 { get; set; }
+        public  string webURL3 { get; set; }
+
+
+
+
+
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -83,31 +134,6 @@ namespace GoodQRma.Models
 
 
         public string ConfirmPassword { get; set; }
-
-
-        public string profileName { get; set; }
-
-
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [Display(Name = "Address")]
-        public string address1 { get; set; }
-
-
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [Display(Name = "State")]
-        public string state { get; set; }
-        //public string city { get; set; }
-       // public string zipCode { get; set; }
-        //public string email { get; set; }
-
-
-
-
-
-
-
 
     }
 

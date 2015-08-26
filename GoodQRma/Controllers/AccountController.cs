@@ -158,9 +158,9 @@ namespace GoodQRma.Controllers
             if (ModelState.IsValid)
             {
                 //CHANGED THIS PART OF THE CODE TO ADD the address
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, address1 = model.address1 };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, address1 = model.address1, address2 = model.address2, city = model.city, state = model.state, zipCode = model.zipCode, country = model.country, phone=model.phone, webURL1=model.webURL1, webURL2 = model.webURL2, webURL3 = model.webURL3 };
 
-
+                var newUser = new User { userID = model.userID, email = model.Email, address1 = model.address1, address2 = model.address2, city = model.city, state = model.state, zipCode = model.zipCode, country = model.country, phone = model.phone, webURL1 = model.webURL1, webURL2 = model.webURL2, webURL3 = model.webURL3 };
 
 
                 var result = await UserManager.CreateAsync(user, model.Password);
