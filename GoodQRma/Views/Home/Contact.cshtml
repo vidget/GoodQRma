@@ -1,4 +1,4 @@
-﻿@{
+﻿@*@{
     ViewBag.Title = "Contact";
 }
 <h2>@ViewBag.Title.</h2>
@@ -14,4 +14,117 @@
 <address>
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+</address>*@
+@{
+    ViewBag.Title = "Contact US";
+}
+@*<h2>@ViewBag.Title.</h2>*@
+
+@*<address>
+        One Microsoft Way<br />
+        Redmond, WA 98052-6399<br />
+        <abbr title="Phone">P:</abbr>
+        425.555.0100
+    </address>*@
+
+<!-- Navigation -->
+@*<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>*@
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Portfolio Item Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 font face="castellar"><center>GoodQRma </center></font></h2>
+            <h4><font face="Lucida Handwriting "><center>"Alone we can do so little,together we can do so much"</center></font></h4>
+
+            </h1>
+        </div>
+    </div>
+    <br /><br />
+    <!-- /.row -->
+    <!-- Portfolio Item Row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <img class="img-responsive" src=" https://upload.wikimedia.org/wikipedia/commons/f/f9/Qrpedia.org_screenshot.png" style="height:400">
+
+        </div>
+
+        <aside id="contact-info">
+            <dl>
+                <h4>
+                    <dt>Email</dt>
+                    <dd><a href="mailto:info@GoodQRma.com" title="Click to send us an email">info@GoodQRma.com</a></dd>
+                    <dt>Telephone</dt>
+                    <dd><a href="tel:00306977447033" title="Click to call us">+44 2163930503</a></<dd>
+                <dt>Address</dt>
+                <dd>
+                    <address>
+                        1570 Woodward avenue<br />
+                        Detroit<br />
+                        MI<br />
+                        48084
+                </dd>
+                <dd class="social-links">
+                    <a class="fb" href="http://www.facebook.com/GoodQRma" title="Find us on Facebook">Facebook</a> </br>
+                    <a class="tt" href="http://twitter.com/GoodQRma" title="Find us on Twitter">Twitter</a> </br>
+                </dd>
+            </dl></h4>
+        </aside>
+    </div>
+
+</div>
+<div class="col-md-4">
+    <h3>How can I help you </h3>
+
+    <div class="col-md-4">
+        <p class="row half first">
+
+            <label for="id_name">Name: <span class="required">*</span></label>
+            <span class="field"><input type="text" name="name" id="id_name" /></span>
+        </p>
+        <p class="row half">
+            <label for="id_email">Email: <span class="required">*</span></label>
+            <span class="field"><input type="text" name="email" id="id_email" /></span>
+        </p>
+        <p class="row">
+            <label for="id_message">Message: <span class="required">*</span></label>
+            <span class="field"><textarea cols="40" rows="5" name="message" id="id_message"></textarea></span>
+        </p>
+        <
+        <p class="submit-row">
+            <button type="submit">SEND</button>
+        </p>
+
+    </div>
+</div>

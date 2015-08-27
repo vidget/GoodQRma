@@ -16,10 +16,16 @@ namespace GoodQRma.Controllers
     {
         private goodQRmaContext db = new goodQRmaContext();
 
+
         // GET: User
         public ActionResult Index(int? id)
         {
             User user = db.Users.Include(s => s.Files).SingleOrDefault(s => s.userID == id);
+
+
+
+
+
             return View(db.Users.ToList());
         }
 

@@ -1,7 +1,144 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+@*<h3>@ViewBag.Message</h3>*@
 
-<p>Use this area to provide additional information.</p>
+<!-- Navigation -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <img src="~/Images/GoodQRma_logo.png" />
+
+            @Html.ActionLink("GoodQRma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                <li>@Html.ActionLink("View User", "Index", "User")</li>
+
+                <li>@Html.ActionLink("Create User", "Create", "User")</li>
+
+                
+
+                <li>@Html.ActionLink("View Event", "Index", "Event")</li>
+                <li>@Html.ActionLink("Create Event", "Create", "Event")</li>
+
+
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+
+<!-- Full Width Image Header -->
+<header class="header-image">
+    <div class="headline">
+        <div class="container">
+            <h2 ><center><font face="castellar">GoodQRma</font></center></h2>
+            <h4><center><font face="Lucida Handwriting ">Alone we can do so little,together we can do so much</font></center></h4>
+        </div>
+    </div>
+</header>
+<p > The Portal is a first-of-its-kind service that provides applicants with all that they need to find a volunteer opportunity, and serves to help them make the best match possible between their personal requirements and their choice of volunteer work throughout America’s vast land base and expansive resources. The Portal is a free, fast, and efficient way to connect volunteers with natural and cultural resources agencies.</p>
+<p >Alternatively, you can search by Key Word Search, Partner Agency and/or Zip Code Search. The Zip Code Search will search all opportunities within 30 miles of your search zip code. After you have explored the various opportunities and made a decision on which position(s) suits your needs, you can register on-line. Notifications are sent immediately to applicants and to the coordinator who originally posted the position(s). After reviewing the applications, the volunteer coordinator will notify you of the next steps. </p>
+<!-- Page Content -->
+<div class="container">
+    <hr class="featurette-divider">
+    <!-- First Featurette -->
+    <div class="featurette" id="about">
+        <img class="featurette-image img-circle img-responsive pull-right" src=" https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRdBIaft8L12qwBNPhte1rMZki74h_mDGqfoQcTIa4Cb1rDfsCK">
+        <h2 class="featurette-heading">
+            Keep the County Clean
+            <span class="text-muted">-Volunteer</span>
+        </h2>
+        <p >How about a place where a volunteer could find a local cleanup and volunteer a couple hours of their time? How about a place where students or businesses could organize their own folks to clean up a section of their neighborhood - whether in the water, on the coastline, or on land. </p>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- Second Featurette -->
+    <div class="featurette" id="services">
+        <img class="featurette-image img-circle img-responsive pull-left" src="https://lh3.googleusercontent.com/-I8xzk0WK3A4/Va_jXbIS2LI/AAAAAAAAySo/_5ZLNmcOLwE/w450-h250/food-pantry-clipart.gif"><br />
+        <h2 class=" featurette-heading">
+            Food Drive
+            <span class="text-muted">-Stop Hunger Now </span>
+        </h2>
+        <p >
+            As you may be aware, many people throw out a good deal of “stuff” when they move.  Unfortunately, a lot of this “stuff” is food that could be delivered to a family in need rather than thrown away.  That’s where we come in ….  Our movers offer to pick up the unwanted, non-perishable food items from those who are moving and deliver it to their local food banks.
+        </p>
+    </div>
+
+    <!-- Third Featurette -->
+    <hr class="featurette-divider">
+    <div class="featurette" id="contact">
+        <img class="featurette-image img-circle img-responsive pull-right" style="height:75" src="http://www.sjmctx.com/global/images/new/sub-pages/right-side-photos/volunteering.jpg">
+        <h2 class="featurette-heading">
+            Organization
+            <span class="text-muted">Team of volunters.</span>
+        </h2>
+        <p > If physically going somewhere as a team is out of the question, volunteering as a team is still possible – if you’re willing to get creative. For instance, you could split your employees into teams and hold a contest for which team can bring in the most toys or canned goods. At the end of the campaign, hold a short – and fun – meeting to announce the winning team. When people are at their true best – not just the way they behave at work – it’s easier for bonding to occur.</pclass>
+
+        <p >Another reason volunteering as a team works is because it forces people who may never have to work together to interact. Since volunteer tasks often involve behind the scenes work, there’s usually plenty of time for your employees to talk. When the people who’ve never exchanged more than a few pleasantries with each other begin to talk, they can find common bonds that will help strengthen your team’s sense of unity.</p>
+
+    </div>
+
+    <hr class="featurette-divider">
+    <!-- four Featurette -->
+    <div class="featurette" id="contact">
+        <img class="featurette-image img-circle img-responsive pull-left" style="width: 120" " height:150" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQitirWJWRlubbHq84M03JC1m5SdNtNQId63ed5nQ9WFqTd19EP">
+        <h2 class="featurette-heading">
+            Donate used stuff
+            <span class="text-muted"> .</span>
+        </h2>
+        <p >
+           
+            <p >
+                Your generous donations of clothing and other household goods make a big difference in the lives of America's Veterans and their families. The items you donate generate the majority of the funding to support local, state, and national programs of the Vietnam Veterans of America.
+                1)Schedule a donation pickup online
+                2)Leave clearly labeled bags or boxes of your donated items outside your house on the designated day
+                3)Our driver will pick up your donation , even it RAIN OR SHINE!!!
+            </pclass>
+    </div>
+    <hr class="featurette-divider">
+    <!-- four Featurette -->
+    <div class="featurette" id="contact">
+        <img class="featurette-image img-circle img-responsive pull-right" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRwqCVHnE8uMblEI0oFCP8HukZ5NdZMgSeQ-BUrX_5kpjfGh2V7KQ">
+        <h2 class="featurette-heading">
+            Homeless People
+            <span class="text-muted"></span>
+        </h2>
+        <p >Volunteers works to prevent and end homelessness through a range of support services including eviction prevention, emergency services, transitional housing and permanent affordable housing. Once we engage homeless individuals, including youth and families with children, we stay with them for as long as it takes to return them to self-sufficiency.</p>
+        <p>
+            We operate a number of innovative supportive services programs to support our efforts of ending homelessness
+            1)EMERGENCY SHELTER
+            2)DROP-IN CENTERS
+            3)PERMANENT SUPPORTIVE HOUSING
+            4)TRANSITIONAL HOUSING
+        </p>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2014</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace GoodQRma.Models
 {
@@ -11,13 +12,23 @@ namespace GoodQRma.Models
   
     public class ApplicationUser : IdentityUser
     {
-         
-        //public string profileName { get; set; }
-        public string address1 { get; set; }
-        public string state { get; set; }
-        //public string city { get; set; }
-        //public string zipCode { get; set; }
-        //public string email { get; set; }
+
+        public virtual byte profilePic { get; set; }
+        public virtual int userID { get; set; }
+        public virtual string profileName { get; set; }
+        public virtual string address1 { get; set; }
+        public virtual string address2 { get; set; }
+        public virtual string city { get; set; }
+        public virtual string state { get; set; }
+        public virtual string zipCode { get; set; }
+        public virtual string country { get; set; }
+        public virtual string phone { get; set; }
+        public virtual string webURL1 { get; set; }
+        public virtual string webURL2 { get; set; }
+        public virtual string webURL3 { get; set; }
+
+        public virtual ICollection<File> Files { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -39,5 +50,7 @@ namespace GoodQRma.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<GoodQRma.Models.User> User { get; set; }
     }
-}
+} 
