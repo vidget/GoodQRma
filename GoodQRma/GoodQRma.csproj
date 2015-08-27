@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201508241706496_joinUserEvent.Designer.cs">
       <DependentUpon>201508241706496_joinUserEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508271420162_GoodQRMA.cs" />
+    <Compile Include="Migrations\201508271420162_GoodQRMA.Designer.cs">
+      <DependentUpon>201508271420162_GoodQRMA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -204,10 +208,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\goodQRmaDB.mdf" />
-    <Content Include="App_Data\goodQRmaDB_log.ldf">
-      <DependentUpon>goodQRmaDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\half-slider.css" />
@@ -235,7 +235,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -304,8 +306,12 @@
     <EmbeddedResource Include="Migrations\201508241706496_joinUserEvent.resx">
       <DependentUpon>201508241706496_joinUserEvent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508271420162_GoodQRMA.resx">
+      <DependentUpon>201508271420162_GoodQRMA.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\File\" />
     <Folder Include="Views\PdfView\" />
   </ItemGroup>

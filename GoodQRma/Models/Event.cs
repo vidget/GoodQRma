@@ -23,59 +23,59 @@ namespace GoodQRma.Models
             //[Display(Name = "Image")]
             //[RegularExpression ("(.*?)\.(jpg|bmp|gif|png|jpeg)$")]
 
-            [Required]
+           // [Required]
             [Display(Name = "Image")]
             public virtual byte image { get; set; }
 
 
-            [Required]
+            //[Required]
             //[RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
             [Display(Name = "EventName")]
             public virtual string name { get; set; }
 
-            [Required]
+            //[Required]
             [StringLength(250, ErrorMessage = "Event description  cannot be longer than 250 characters.")]
             [Display(Name = "Event Description")]
             public virtual string description { get; set; }
 
-            [Required]
+            //[Required]
             //[RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
             [Display(Name = "Type of Event")]
             public virtual string eventType { get; set; }
 
-            [Required]
-            [Display(Name = "Event Date")]
-            [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+           // [Required]
+            //[Display(Name = "Event Date")]
+           // [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
             [DataType(DataType.Date)]
             public virtual DateTime eventDate { get; set; }
 
 
-            [Required]
-            [DataType(DataType.Time)]
-            [DisplayFormat(DataFormatString = "{0:T}")]
+            //[Required]
+            //[DataType(DataType.Time)]
+            //[DisplayFormat(DataFormatString = "{0:T}")]
             [Display(Name = "Event Time")]
             public virtual DateTime eventTime { get; set; }
 
-            [Required]
+           // [Required]
             [Display(Name = "Number of Volunteers Needed")]
             public virtual int numVolunteersNeeded { get; set; }
 
-            [Required]
+            //[Required]
             [StringLength(50, ErrorMessage = "Not a valid Address")]
             [Display(Name = "Address")]
             public virtual string address1 { get; set; }
 
-            [Required]
+            //[Required]
             [StringLength(50, ErrorMessage = "Not a valid Address")]
             [Display(Name = "Address")]
             public virtual string address2 { get; set; }
 
-            [Required]
+            //[Required]
             [StringLength(25, ErrorMessage = "Not a valid City")]
             [Display(Name = "City")]
             public virtual string city { get; set; }
 
-            [Required]
+            //[Required]
             [StringLength(25, ErrorMessage = "Not a valid State")]
             [Display(Name = "State")]
             public virtual string state { get; set; }
@@ -107,19 +107,19 @@ namespace GoodQRma.Models
             [Display(Name = "PhoneNumber")]
             public virtual string phone { get; set; }
 
-            [Required]
+            //[Required]
             [Display(Name = "GPSLongitude")]
             public virtual double gpsLong { get; set; }
 
-            [Required]
+            //[Required]
             [Display(Name = "GPSLatitude")]
             public virtual double gpsLat { get; set; }
 
 
             public virtual string eventURL { get; set; }
 
-            [Required]
-            [Display(Name = "List of Users")]
+            //[Required]
+            //[Display(Name = "List of Users")]
             public virtual ICollection<User> Users { get; set; }
         }
     }

@@ -11,7 +11,7 @@ namespace GoodQRma.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "GoodQRma.DAL.goodQRmaContext";
         }
 

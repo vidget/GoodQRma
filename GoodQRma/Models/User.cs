@@ -9,7 +9,7 @@ namespace GoodQRma.Models
 {
     public class User
     {
-        [Required]
+       // [Required]
         [Display(Name = "ProfilePicture")]
         public virtual byte profilePic { get; set; }
 
@@ -19,25 +19,25 @@ namespace GoodQRma.Models
         [Display(Name = "UserId")]
         public virtual int userID { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "ProfileName")]
         public virtual string profileName { get; set; }
 
         //[Required]
         //[StringLength(25)]
-        [MaxLength(25)]
+        //[MaxLength(25)]
         [Display(Name = "Address")]
         public virtual string address1 { get; set; }
 
         //[Required]
         //[StringLength(25)]
-        [MaxLength(25)]
+        //[MaxLength(25)]
         [Display(Name = "Address")]
         public virtual string address2 { get; set; }
 
         //[Required]
         //[StringLength(25)]
-        [MaxLength(25)]
+       // [MaxLength(25)]
         [Display(Name = "City")]
         public virtual string city { get; set; }
         [Required]
@@ -64,15 +64,15 @@ namespace GoodQRma.Models
         public virtual string phone { get; set; }
 
         //[RegularExpression("(?<name>.*?)<(?<email>.*?)>")]
-        [EmailAddress]
-        [Required]
+        //[EmailAddress]
+        //[Required]
         [Display(Name = "Email_id")]
         public virtual string email { get; set; }
 
         
-        [Url]
-        [Required]
-        [Display (Name ="URL")]
+        //[Url]
+       // [Required]
+       // [Display (Name ="URL")]
         public virtual string webURL1 { get; set; }
 
         public virtual string webURL2 { get; set; }
