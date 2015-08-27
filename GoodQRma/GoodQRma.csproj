@@ -215,9 +215,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Contact_Image.png" />
     <Content Include="Images\GoodQRmaBANNER.png" />
     <Content Include="Images\GoodQRmaBANNER2.png" />
     <Content Include="Images\GoodQRmaBANNER3.png" />
+    <Content Include="Images\GoodQRmaLOGO_Transparent_Medium.png" />
     <Content Include="Images\GoodQRma_logo.png" />
     <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
