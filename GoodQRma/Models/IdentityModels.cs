@@ -12,23 +12,23 @@ namespace GoodQRma.Models
   
     public class ApplicationUser : IdentityUser
     {
+        //Use this code if adding to Identity
+        //public virtual byte profilePic { get; set; }
+        //public virtual int userID { get; set; }
+        //public virtual string profileName { get; set; }
+        //public virtual string address1 { get; set; }
+        //public virtual string address2 { get; set; }
+        //public virtual string city { get; set; }
+        //public virtual string state { get; set; }
+        //public virtual string zipCode { get; set; }
+        //public virtual string country { get; set; }
+        //public virtual string phone { get; set; }
+        //public virtual string webURL1 { get; set; }
+        //public virtual string webURL2 { get; set; }
+        //public virtual string webURL3 { get; set; }
 
-        public virtual byte profilePic { get; set; }
-        public virtual int userID { get; set; }
-        public virtual string profileName { get; set; }
-        public virtual string address1 { get; set; }
-        public virtual string address2 { get; set; }
-        public virtual string city { get; set; }
-        public virtual string state { get; set; }
-        public virtual string zipCode { get; set; }
-        public virtual string country { get; set; }
-        public virtual string phone { get; set; }
-        public virtual string webURL1 { get; set; }
-        public virtual string webURL2 { get; set; }
-        public virtual string webURL3 { get; set; }
-
-        public virtual ICollection<File> Files { get; set; }
-        public virtual ICollection<Event> Events { get; set; }
+        //public virtual ICollection<File> Files { get; set; }
+        //public virtual ICollection<Event> Events { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

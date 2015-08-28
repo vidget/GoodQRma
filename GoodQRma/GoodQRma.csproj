@@ -196,6 +196,10 @@
     <Compile Include="Migrations\201508271420162_GoodQRMA.Designer.cs">
       <DependentUpon>201508271420162_GoodQRMA.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508280135585_LoginTiedtoUser.cs" />
+    <Compile Include="Migrations\201508280135585_LoginTiedtoUser.Designer.cs">
+      <DependentUpon>201508280135585_LoginTiedtoUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -221,7 +225,6 @@
     <Content Include="Images\GoodQRmaBANNER3.png" />
     <Content Include="Images\GoodQRmaLOGO_Transparent_Medium.png" />
     <Content Include="Images\GoodQRma_logo.png" />
-    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Browsers\qt.browser" />
@@ -310,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508271420162_GoodQRMA.resx">
       <DependentUpon>201508271420162_GoodQRMA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508280135585_LoginTiedtoUser.resx">
+      <DependentUpon>201508280135585_LoginTiedtoUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
