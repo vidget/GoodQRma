@@ -49,11 +49,15 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
 </body>
-<div id="googleMap" style="width:250px;height:250px;"></div>
+<div id="googleMap" style="width:890px;height:250px; float:left"></div>
 
+
+
+
+ 
 <div>
 
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=http://maps.google.com?q=@Model.address1,@Model.city,@Model.state,@Model.zipCode" />
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=http://maps.google.com?q=@Model.address1,@Model.city,@Model.state,@Model.zipCode " ; float:right />
 
 
     <hr />
@@ -159,11 +163,12 @@
     </dl>
 </div>
 <p>
-
-    @Html.ActionLink("Event Posters", "EventPoster", new { id = Model.eventID }) |
-    @Html.ActionLink("Edit", "Edit", new { id = Model.eventID }) |
-    @Html.ActionLink("Back to List", "Index")
-    @*<div class="fb-share-button" data-href="http://goodqrma.azurewebsites.net" data-layout="button"></div>*@
+    <center>
+        @Html.ActionLink("Event Posters", "EventPoster", new { id = Model.eventID }) |
+        @Html.ActionLink("Edit", "Edit", new { id = Model.eventID }) |
+        @Html.ActionLink("Back to List", "Index")
+        @*<div class="fb-share-button" data-href="http://goodqrma.azurewebsites.net" data-layout="button"></div>*@
+    
 </p>
 
 <html>
@@ -195,6 +200,6 @@
          data-href="http://www.goodqrma.azurewebsites/Edit/Details/@Model.eventID"
          data-layout="button_count">
     </div>
-
+    </center>
 </body>
 </html>

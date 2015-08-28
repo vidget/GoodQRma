@@ -67,7 +67,7 @@ namespace GoodQRma
                 ClientId = "359498959611-8iq2oss06sa32rebn6oi417rkpo9c5r9.apps.googleusercontent.com",
                 ClientSecret = "mxpWYhAkpEL4w_IhbjeSP9vy",
                 Provider = new GoogleOAuth2AuthenticationProvider()
-                //CallbackPath = new PathString("/Account/Register")
+                
             });
         }
     }
