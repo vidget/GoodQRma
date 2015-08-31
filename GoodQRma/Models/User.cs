@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using GoodQRma.Models;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNet.Identity;
 
 namespace GoodQRma.Models
 {
@@ -73,16 +74,38 @@ namespace GoodQRma.Models
 
         
         //[Url]
-       // [Required]
+       // [Required] 
        // [Display (Name ="URL")]
         public virtual string webURL1 { get; set; }
 
         public virtual string webURL2 { get; set; }
         public virtual string webURL3 { get; set; }
 
+
+
+
+
+        public int getLoggedInUserID(string logName, string logEmail)
+        {
+
+
+            if (logName == logEmail)
+                return userID;
+            else
+                return 0;
+        }
+
+
+
+
+
         public virtual ICollection<File> Files { get; set; }
        public virtual ICollection<Event> Events { get; set; }
     }
+
+
+
+
 }
        
 

@@ -96,10 +96,43 @@
             @Html.DisplayFor(modelItem => item.webURL3)
         </td>
         <td>
-            @Html.ActionLink("Edit User", "Edit", new { id = item.userID }) |
+
+
+    @{
+        
+        int foo = 0;
+        
+        List<int> email = new List<int>();
+        do
+        {
+            foreach (var i in Model)
+            {
+                email.Add(i.getLoggedInUserID(User.Identity.Name, i.email));
+                if (i.getLoggedInUserID(User.Identity.Name, i.email) > 0)
+                {
+                    foo=1;
+                }
+
+            }
+        
+        }while (foo>email.Count());
+   
+    }
+
+
+
+            
+
+
+
+            @Html.ActionLink("Edit User", "Edit", new { id = email.Last() }) |
+
             @Html.ActionLink("Profile", "Details", new { id = item.userID }) |
-            @Html.ActionLink("Delete User", "Delete", new { id = item.userID })
+            @Html.ActionLink("Delete My Profile ", "Delete", new { id = email.Last() })
+
+            @Html.ActionLink("My Profile", "Details", new { id = email.Last() })
         </td>
+
     </tr>
 }
 

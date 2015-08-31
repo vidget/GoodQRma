@@ -61,7 +61,6 @@ namespace GoodQRma
 
 
 
-
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
                 ClientId = "359498959611-8iq2oss06sa32rebn6oi417rkpo9c5r9.apps.googleusercontent.com",
