@@ -17,18 +17,18 @@ namespace GoodQRma.Migrations
 
         protected override void Seed(GoodQRma.DAL.goodQRmaContext context)
         {
-            var users = new List<User>
+           /* var users = new List<User>
                 {
                     new User{userID=1,profileName ="Greg",address1 = "22859 Beech", 
                         address2 ="",city="Dearborn",state="Michigan",zipCode="48124",country="USA",
                         phone ="313-516-1559", webURL1 = "www.yahoo.com", webURL2 = "www.google.com", webURL3 = "www.amazon.com", },
 
-                    new User{userID=2,profileName ="Steve",address1 = "4752 Palmer", 
+                    new User{userID=2,profileName ="Steve",address1 = "4752 Palmer",
                         address2 ="",city="Dearborn",state="Michigan",zipCode="48126",country="USA",
                         phone ="313-555-1129", webURL1 = "www.ebay.com", webURL2 = "www.cnn.com", webURL3 = "www.craigslist.com", },
 
 
-                     new User{userID=3,profileName ="Paul",address1 = "7324 St.Marys", 
+                     new User{userID=3,profileName ="Paul",address1 = "7324 St.Marys",
                         address2 ="",city="Detroit",state="Michigan",zipCode="48128",country="USA",
                         phone ="313-555-2319", webURL1 = "www.time.com", webURL2 = "www.ebay.com", webURL3 = "www.clickondetroit.com", },
 
@@ -49,7 +49,7 @@ namespace GoodQRma.Migrations
 
 
             users.ForEach(p => context.Users.AddOrUpdate(s => s.userID, p));
-            context.SaveChanges();
+            context.SaveChanges();*/
 
             // EVENT MODEL
 
