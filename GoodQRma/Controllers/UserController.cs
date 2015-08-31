@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using GoodQRma.DAL;
 using GoodQRma.Models;
 using GoodQRma.Controllers;
+using Microsoft.AspNet.Identity;
 
 namespace GoodQRma.Controllers
 {
@@ -77,7 +78,9 @@ namespace GoodQRma.Controllers
                     user.Files = new List<File> { avatar };
                 }
 
+                user.userIDLogin = User.Identity.GetUserId();
 
+                user.email = User.Identity.GetUserName();
 
                 db.Users.Add(user);
                 db.SaveChanges();

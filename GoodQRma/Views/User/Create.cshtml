@@ -24,6 +24,10 @@
                 </div>
             </div>*@
 
+
+
+
+
             @Html.Label("ProfilePic", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="file" id="Avatar" name="upload" />
@@ -94,13 +98,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-            </div>
-        </div>
+       
 
         <div class="form-group">
             @Html.LabelFor(model => model.webURL1, htmlAttributes: new { @class = "control-label col-md-2" })

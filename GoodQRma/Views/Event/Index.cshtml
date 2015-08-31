@@ -27,11 +27,12 @@
         }
         listToArray();
         //alert(list1.join('\n'));
+
         var geocoder;
         var map;
         function initialize() {
             geocoder = new google.maps.Geocoder();
-            var latlng = new google.maps.LatLng(42.3314, -83.0458);
+            var latlng = new google.maps.LatLng(0, 0);
             var mapOptions = {
                 zoom: 10,
                 center: latlng,
@@ -39,13 +40,35 @@
             }
             map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
             setMarkers();
+
+            var infoWindow = new google.maps.InfoWindow({ map: map });
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('You Are Here.');
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+
         }
 
         function setMarkers() {
             for (var i = 0; i < list1.length; i++) {
                 geocoder.geocode({ 'address': list1[i] }, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
-                        map.setCenter(results[0].geometry.location);
+                        //map.setCenter(results[0].geometry.location);
                         //alert(results[0].geometry.location);
                         var marker = new google.maps.Marker({
                             map: map,
@@ -56,7 +79,13 @@
                     }
                 });
             }
+        }
 
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                                  'Error: The Geolocation service failed.' :
+                                  'Error: Your browser doesn\'t support geolocation.');
         }
 
         google.maps.event.addDomListener(window, 'load', initialize);
@@ -66,27 +95,16 @@
     <div id="map-canvas" style="width:100%;height:300px;"></div>
 </body>
 
-
-
-
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.userID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.image)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.name)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.eventType)
         </th>
@@ -96,15 +114,11 @@
         <th>
             @Html.DisplayNameFor(model => model.eventTime)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.numVolunteersNeeded)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.address1)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.address2)
-        </th>
+      
         <th>
             @Html.DisplayNameFor(model => model.city)
         </th>
@@ -114,41 +128,19 @@
         <th>
             @Html.DisplayNameFor(model => model.zipCode)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.contact)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.gpsLong)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.gpsLat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.eventURL)
-        </th>
+      
+      
+        
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.userID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.image)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.name)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.eventType)
         </td>
@@ -158,15 +150,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.eventTime)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.numVolunteersNeeded)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.address1)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.address2)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.city)
         </td>
@@ -176,24 +164,8 @@
         <td>
             @Html.DisplayFor(modelItem => item.zipCode)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.contact)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.gpsLong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.gpsLat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.eventURL)
-        </td>
+       
+       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.eventID }) |
             @Html.ActionLink("Details", "Details", new { id=item.eventID }) |

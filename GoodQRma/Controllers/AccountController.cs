@@ -158,7 +158,7 @@ namespace GoodQRma.Controllers
             if (ModelState.IsValid)
             {
                 //CHANGED THIS PART OF THE CODE TO ADD the address
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, address1 = model.address1, address2 = model.address2, city = model.city, state = model.state, zipCode = model.zipCode, country = model.country, phone=model.phone, webURL1=model.webURL1, webURL2 = model.webURL2, webURL3 = model.webURL3 };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -170,8 +170,8 @@ namespace GoodQRma.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
+                    //CHANGED THIS after USER IS CREATED
+                    return RedirectToAction("Create", "User");
                 }
                 AddErrors(result);
             }
@@ -288,7 +288,10 @@ namespace GoodQRma.Controllers
         {
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
+            //return new ChallengeResult(provider, Url.Action("Create", "User", new { ReturnUrl = returnUrl }));
+
         }
+
 
         //
         // GET: /Account/SendCode
@@ -341,6 +344,7 @@ namespace GoodQRma.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -383,7 +387,8 @@ namespace GoodQRma.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        return RedirectToLocal(returnUrl);
+                        //return RedirectToLocal(returnUrl);
+                        return RedirectToAction("Create", "User");
                     }
                 }
                 AddErrors(result);

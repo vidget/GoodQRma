@@ -19,6 +19,8 @@ namespace GoodQRma.Models
         [Display(Name = "UserId")]
         public virtual int userID { get; set; }
 
+        public virtual string userIDLogin { get; set; }
+
         //[Required]
         [Display(Name = "ProfileName")]
         public virtual string profileName { get; set; }
@@ -82,40 +84,7 @@ namespace GoodQRma.Models
        public virtual ICollection<Event> Events { get; set; }
     }
 }
-        //public virtual byte profilePic { get; set; } 
-        //public virtual int userID { get; set; }
-        //public virtual string profileName { get; set; }
-        //public virtual string address1 { get; set; }
-        //public virtual string address2 { get; set; }
-        //public virtual string city { get; set; }
-        //public virtual string state { get; set; }
-        //public virtual string zipCode { get; set; }
-        //public virtual string country { get; set; }
-        //public virtual string phone { get; set; }
-        //public virtual string email { get; set; }
-        //public virtual string webURL1 { get; set; }
-        //public virtual string webURL2 { get; set; }
-        //public virtual string webURL3 { get; set; }
-
-        //public virtual ICollection<File> Files { get; set; }
-        //public virtual ICollection<Event> Events { get; set; }
-
-        //public User()
-        //{
-        //    userID = 0;
-        //    profileName = "";
-        //    address1 = "";
-        //    address2 = "";
-        //    city = "";
-        //    state = "";
-        //    zipCode = "";
-        //    country ="";
-        //    phone ="";
-        //    email ="";
-        //    webURL1="";
-        //    webURL2="";
-        //    webURL3="";
-        // }
+       
 
 
 
