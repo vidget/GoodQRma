@@ -17,11 +17,49 @@ namespace GoodQRma.Controllers
         private goodQRmaContext db = new goodQRmaContext();
 
         // GET: Event
-        public ActionResult Index()
+        /*public ActionResult Index(string id)
         {
-            return View(db.Events.ToList());
-        }
+            string searchString = id;
 
+            var events = from e in db.Events
+                         select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                events = events.Where(s => s.eventType.Contains(searchString));
+            }
+
+            return View(events);
+        }*/
+        public ActionResult Index(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var events = from s in db.Events
+                           select s;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                events = events.Where(s => s.eventType.Contains(searchString));
+                    
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    events = events.OrderByDescending(s => s.eventType);
+                    break;
+                case "Date":
+                    events = events.OrderBy(s => s.eventTime);
+                    break;
+                case "date_desc":
+                    events = events.OrderByDescending(s => s.eventDate);
+                    break;
+                default:
+                    events = events.OrderBy(s => s.city);
+                    break;
+            }
+            return View(events.ToList());
+        }
                 
         public ActionResult EventPoster(int? id)
         {
