@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
+using System.Net.Mail;
+using GoodQRma.Models;
 
 namespace GoodQRma.Controllers
 {
@@ -13,7 +16,7 @@ namespace GoodQRma.Controllers
 
 
             return View("Index", "_LayoutHOME");
-           
+
         }
 
         public ActionResult About()
@@ -25,9 +28,66 @@ namespace GoodQRma.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.Message = "Contact us.";
             return View();
+        }
+
+        //public ViewResult Contact(GoodQRma.Models.HelpForm)
+        // {
+        //     if (ModelState.IsValid)
+        //     {
+        //         MailMessage mail = new MailMessage();
+        //         mail.To.Add(To);
+        //         mail.From = new MailAddress(From);
+        //        mail.Subject =Subject;
+        //         string message = Body;
+        //         mail.Body = message;
+        //         mail.IsBodyHtml = true;
+        //         SmtpClient smtp = new SmtpClient();
+        //         smtp.Host = "smtp.gmail.com";
+        //         smtp.Port = 465;
+        //         smtp.UseDefaultCredentials = false;
+        //         smtp.Credentials = new System.Net.NetworkCredential
+        //         ("goodqrma@gmail.com", "4goodqrma");// Enter seders User name and password  
+        //         smtp.EnableSsl = true;
+        //         smtp.Send(mail);
+        //         return View("Index");
+        //     }
+
+        //    else
+        //     {
+        //         return View();
+        //     }
+        [HttpPost]
+        public ViewResult Contact(GoodQRma.Models.HelpForm hform)
+        {
+
+            if (ModelState.IsValid)
+            {
+                MailMessage mail = new MailMessage();
+                mail.To.Add(hform.To);
+                mail.From = new MailAddress(hform.From);
+                mail.Subject = hform.Subject;
+                string Body = hform.Body;
+                mail.Body = Body;
+                mail.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential
+                ("goodqrma@gmail.com", "4goodqrma");// Enter seders User name and password  
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                return View("Index", hform);
+            }
+
+            else
+            {
+                return View();
+            }
         }
     }
 }
