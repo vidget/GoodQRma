@@ -32,32 +32,6 @@ namespace GoodQRma.Controllers
             return View();
         }
 
-        //public ViewResult Contact(GoodQRma.Models.HelpForm)
-        // {
-        //     if (ModelState.IsValid)
-        //     {
-        //         MailMessage mail = new MailMessage();
-        //         mail.To.Add(To);
-        //         mail.From = new MailAddress(From);
-        //        mail.Subject =Subject;
-        //         string message = Body;
-        //         mail.Body = message;
-        //         mail.IsBodyHtml = true;
-        //         SmtpClient smtp = new SmtpClient();
-        //         smtp.Host = "smtp.gmail.com";
-        //         smtp.Port = 465;
-        //         smtp.UseDefaultCredentials = false;
-        //         smtp.Credentials = new System.Net.NetworkCredential
-        //         ("goodqrma@gmail.com", "4goodqrma");// Enter seders User name and password  
-        //         smtp.EnableSsl = true;
-        //         smtp.Send(mail);
-        //         return View("Index");
-        //     }
-
-        //    else
-        //     {
-        //         return View();
-        //     }
         [HttpPost]
         public ViewResult Contact(GoodQRma.Models.HelpForm hform)
         {
