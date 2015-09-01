@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using GoodQRma.DAL;
+using Microsoft.AspNet.Identity;
+using GoodQRma.Models;
 
 namespace GoodQRma.Controllers
 {
     public class FileController : Controller
     {
 
-        private goodQRmaContext db = new goodQRmaContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
 
         // GET: File

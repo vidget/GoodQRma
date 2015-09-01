@@ -12,20 +12,16 @@ namespace GoodQRma.Models
          
             //[StringLength(10, ErrorMessage = "Max 10 digits")]
             [Display(Name = "Event ID")]
-            public virtual int eventID { get; set; }
+            public virtual int? eventID { get; set; }
 
          
             //[StringLength(10, ErrorMessage = "Max10 digits")]
             [Display(Name = "UserID")]
-            public virtual int userID { get; set; }
+            public virtual int? userID { get; set; }
 
             //[Required]
-            //[Display(Name = "Image")]
-            //[RegularExpression ("(.*?)\.(jpg|bmp|gif|png|jpeg)$")]
-
-           // [Required]
             [Display(Name = "Image")]
-            public virtual byte image { get; set; }
+            public virtual byte? image { get; set; }
 
 
             //[Required]
@@ -44,31 +40,26 @@ namespace GoodQRma.Models
             public virtual string eventType { get; set; }
 
            // [Required]
-            //[Display(Name = "Event Date")]
-           // [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+            [Display(Name = "Event Date")]
+            [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
             [DataType(DataType.Date)]
             public virtual DateTime eventDate { get; set; }
 
 
             //[Required]
-            //[DataType(DataType.Time)]
-            //[DisplayFormat(DataFormatString = "{0:T}")]
+            [DataType(DataType.Time)]
+            [DisplayFormat(DataFormatString = "{0:T}")]
             [Display(Name = "Event Time")]
             public virtual DateTime eventTime { get; set; }
 
            // [Required]
             [Display(Name = "Number of Volunteers Needed")]
-            public virtual int numVolunteersNeeded { get; set; }
+            public virtual int? numVolunteersNeeded { get; set; }
 
             //[Required]
             [StringLength(50, ErrorMessage = "Not a valid Address")]
             [Display(Name = "Address")]
             public virtual string address1 { get; set; }
-
-            //[Required]
-            [StringLength(50, ErrorMessage = "Not a valid Address")]
-            [Display(Name = "Address")]
-            public virtual string address2 { get; set; }
 
             //[Required]
             [StringLength(25, ErrorMessage = "Not a valid City")]
@@ -107,26 +98,18 @@ namespace GoodQRma.Models
             [Display(Name = "PhoneNumber")]
             public virtual string phone { get; set; }
 
-            //[Required]
-            [Display(Name = "GPSLongitude")]
-            public virtual double gpsLong { get; set; }
-
-            //[Required]
-            [Display(Name = "GPSLatitude")]
-            public virtual double gpsLat { get; set; }
-
-
             public virtual string eventURL { get; set; }
 
             //[Required]
             //[Display(Name = "List of Users")]
-            public virtual ICollection<User> Users { get; set; }
+            public virtual ICollection<ApplicationUser> Users { get; set; }
 
         public string getFullAddress()
             {
                 string fullAddress = address1 + ", " + city + ", " + state + ", " + zipCode;
                 return fullAddress;
             }
+
         }
     }
 

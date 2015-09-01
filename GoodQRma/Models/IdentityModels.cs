@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace GoodQRma.Models
 {
@@ -12,23 +13,16 @@ namespace GoodQRma.Models
   
     public class ApplicationUser : IdentityUser
     {
-        //Use this code if adding to Identity
-        //public virtual byte profilePic { get; set; }
-        //public virtual int userID { get; set; }
-        //public virtual string profileName { get; set; }
-        //public virtual string address1 { get; set; }
-        //public virtual string address2 { get; set; }
-        //public virtual string city { get; set; }
-        //public virtual string state { get; set; }
-        //public virtual string zipCode { get; set; }
-        //public virtual string country { get; set; }
-        //public virtual string phone { get; set; }
-        //public virtual string webURL1 { get; set; }
-        //public virtual string webURL2 { get; set; }
-        //public virtual string webURL3 { get; set; }
+        //public byte profilePic { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
+        public string Country { get; set; }
 
-        //public virtual ICollection<File> Files { get; set; }
-        //public virtual ICollection<Event> Events { get; set; }
+        public virtual ICollection<File> Files { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -51,6 +45,21 @@ namespace GoodQRma.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<GoodQRma.Models.User> User { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<File> Files { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Event>()
+                .HasMany(e => e.Users).WithMany(u => u.Events)
+                .Map(t => t.MapLeftKey("EventID").MapRightKey("UserID")
+                .ToTable("AttendanceLog"));
+        }
+
     }
+
 } 
