@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System;
 
+
 namespace GoodQRma.Models
 {
     public class ExternalLoginConfirmationViewModel
@@ -160,7 +161,7 @@ namespace GoodQRma.Models
 
         
         public string ConfirmPassword { get; set; }
-
+        public string roleName { get; set; }  
 
 
         [Required]

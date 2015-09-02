@@ -11,11 +11,18 @@ using Microsoft.AspNet.Identity;
 
 namespace GoodQRma.Controllers
 {
+
+     [Authorize]
     public class EventController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
 
+       
+         
+        ApplicationDbContext db = new ApplicationDbContext(); 
+
+          
         // GET: Event
+          [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Events.ToList());
@@ -35,8 +42,9 @@ namespace GoodQRma.Controllers
             }
             return View(@event);
         }
-
+         
         // GET: Event/Create
+        [Authorize (Roles="Member")]
         public ActionResult Create()
         {
             return View();

@@ -60,6 +60,19 @@ namespace GoodQRma.Models
                 .ToTable("AttendanceLog"));
         }
 
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
 
 } 
