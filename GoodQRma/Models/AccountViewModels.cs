@@ -9,10 +9,44 @@ namespace GoodQRma.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Required]
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+        [Required]
+        [Display(Name = "Country")]
+        public string Country { get; set; }
+
+        [Required]
+        [Display(Name = "ZipCode")]
+        public string ZipCode { get; set; }
+
+
     }
 
     public class ExternalLoginListViewModel
     {
+
+
+
+
+
+
+
         public string ReturnUrl { get; set; }
     }
 
@@ -83,6 +117,54 @@ namespace GoodQRma.Models
 
         
         public string ConfirmPassword { get; set; }
+
+
+
+        [Required]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+
+        [Required]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Required]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+        [Required]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Zip Code")]
+        public string ZipCode { get; set; }
+
+
+        [Required]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Country")]
+        public string Country { get; set; } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 

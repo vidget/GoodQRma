@@ -158,7 +158,7 @@ namespace GoodQRma.Controllers
             if (ModelState.IsValid)
             {
                 //CHANGED THIS PART OF THE CODE TO ADD the address
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,Name = model.Name, Address = model.Address,City = model.City, State = model.State, Country = model.Country,ZipCode = model.ZipCode};
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -379,7 +379,7 @@ namespace GoodQRma.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, Address = model.Address, City = model.City,State = model.State, ZipCode = model.ZipCode, Country = model.Country  };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -388,7 +388,7 @@ namespace GoodQRma.Controllers
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         //return RedirectToLocal(returnUrl);
-                        return RedirectToAction("Create", "User");
+                        return RedirectToAction("Index", "Home");
                     }
                 }
                 AddErrors(result);
