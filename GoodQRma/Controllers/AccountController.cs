@@ -393,6 +393,7 @@ namespace GoodQRma.Controllers
             }
 
             if (ModelState.IsValid)
+
             {
                 // Get the information about the user from the external login provider
                 var info = await AuthenticationManager.GetExternalLoginInfoAsync();
@@ -404,9 +405,14 @@ namespace GoodQRma.Controllers
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+                    //Assign Role to user Here 
+                    await this.UserManager.AddToRoleAsync(user.Id, "Member");
+                    //Ends Here
+
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
+
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         //return RedirectToLocal(returnUrl);
                         return RedirectToAction("UserProfile", "Account", model);
