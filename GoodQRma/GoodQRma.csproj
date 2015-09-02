@@ -299,6 +299,7 @@
     <Content Include="Views\Event\Edit.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Account\UserProfile.cshtml" />
+    <Content Include="Views\Event\EventPoster.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

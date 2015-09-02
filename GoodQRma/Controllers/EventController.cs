@@ -103,6 +103,28 @@ namespace GoodQRma.Controllers
             return View(@event);
         }
 
+
+        //[Authorize(Roles = "Member")]
+        public ActionResult EventPoster(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+
+            Event @event = db.Events.Find(id);
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+
+            
+            return View("EventPoster", "_Layout2", @event);
+        }
+
+
         // GET: Event/Delete/5
         public ActionResult Delete(int? id)
         {

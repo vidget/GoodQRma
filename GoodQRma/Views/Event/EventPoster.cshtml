@@ -1,0 +1,37 @@
+﻿@model GoodQRma.Models.Event 
+
+
+@{
+    ViewBag.Title = "EventPoster";
+}
+
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=http://maps.google.com?q=@Model.address1,@Model.city,@Model.state,@Model.zipCode" />*
+
+<h1>@Model.name</h1><br />
+
+<h2>@Model.description</h2><br />
+
+
+<h2>@Model.eventDate</h2><br />
+
+
+<h2>@Model.address1</h2><br />
+
+<h2>@Model.contact phone: @Model.phone</h2> 
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
