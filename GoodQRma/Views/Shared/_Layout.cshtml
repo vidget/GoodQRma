@@ -6,56 +6,521 @@
     <title>@ViewBag.Title - GoodQRma</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-    
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <!-- Wrap all page content here -->
+   <div id="wrap">
+        <header class="masthead">
+                       <div id="myCarousel" class="carousel slide">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="https://unsplash.com/photos/o6Y9E-DdG6w/download">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h2>We Need Volunteers</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="https://unsplash.com/photos/ob6O_xd67O0/download">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h2>Keep the Country clean</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="https://unsplash.com/photos/1eWaod96d3k/download">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h2>Use the technology</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.carousel-inner -->
+                @* <div class="logo"><h1><center>GoodQRma</center></h1></div>*@
+                <!-- Controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+            <!-- /.carousel -->
+
+        </header>
+
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav nav-justified">
+                        <li><@Html.ActionLink("viewevent","index","Event")> </li>
+                        <li><@Html.ActionLink("create event","create","Event")></li>
+                        <li><@Html.ActionLink("about","about","Home")></li>
+                     <li><@Html.ActionLink("Contact", "Contact", "Home")></li>
+                    </ul>
+                    @*<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>*@
+                    </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container -->
+        </div><!--/.navbar -->
+        @*<!-- Begin page content -->
+                    <div class="divider" id="section1"></div>
+
+                    <div class="container">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="page-header text-center">
+                                <h1>About Us</h1>
+                            </div>
+
+                            <p class="lead text-center">
+
+                            </p>
+
+                            <hr>
+
+                            <div class="divider"></div>
+
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+            <section class="bg-1">
+                <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+            </section>
+
+            <div class="divider" id="section2"></div>
+            <!--Abt-->
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h1>Profile</h1>
+                    <header class="header-image">
+                        <div class="headline">
+                            <div class="container">
+
+                    <!---About page startg-->
+                    <@*
+                                        <h2 align=center><img src="~/images/goodqrmalogo_transparent_medium.png"></h2>
+                                        <h4 align=center><font face="lucida handwriting ">alone we can do so little,together we can do so much</font></h4>
+                                    </div>
+                                </div>
+                            </header>
+                            <p> the portal is a first-of-its-kind service that provides applicants with all that they need to find a volunteer opportunity, and serves to help them make the best match possible between their personal requirements and their choice of volunteer work throughout america’s vast land base and expansive resources. the portal is a free, fast, and efficient way to connect volunteers with natural and cultural resources agencies.</p>
+                            <p>alternatively, you can search by key word search, partner agency and/or zip code search. the zip code search will search all opportunities within 30 miles of your search zip code. after you have explored the various opportunities and made a decision on which position(s) suits your needs, you can register on-line. notifications are sent immediately to applicants and to the coordinator who originally posted the position(s). after reviewing the applications, the volunteer coordinator will notify you of the next steps. </p>
+                            <!-- page content -->
+                            <div class="container">
+                                <hr class="featurette-divider">
+                                <!-- first featurette -->
+                                <div class="featurette" id="about">
+                                    <img class="featurette-image img-circle img-responsive pull-right" src=" https://encrypted-tbn2.gstatic.com/images?q=tbn:and9gcrdbiaft8l12qwbnphte1rmzki74h_mdgqfoqctia4cb1rdfsck">
+                                    <h2 class="featurette-heading">
+                                        keep the county clean
+                                        <span class="text-muted">-volunteer</span>
+                                    </h2>
+                                    <p>how about a place where a volunteer could find a local cleanup and volunteer a couple hours of their time? how about a place where students or businesses could organize their own folks to clean up a section of their neighborhood - whether in the water, on the coastline, or on land. </p>
+                                </div>
+
+                                <hr class="featurette-divider">
+
+                                <!-- second featurette -->
+                                <div class="featurette" id="services">
+                                    <img class="featurette-image img-circle img-responsive pull-left" src="https://lh3.googleusercontent.com/-i8xzk0wk3a4/va_jxbis2li/aaaaaaaayso/_5zlnmcolwe/w450-h250/food-pantry-clipart.gif"><br />
+                                    <h2 class=" featurette-heading">
+                                        food drive
+                                        <span class="text-muted">-stop hunger now </span>
+                                    </h2>
+                                    <p>
+                                        as you may be aware, many people throw out a good deal of “stuff” when they move.  unfortunately, a lot of this “stuff” is food that could be delivered to a family in need rather than thrown away.  that’s where we come in ….  our movers offer to pick up the unwanted, non-perishable food items from those who are moving and deliver it to their local food banks.
+                                    </p>
+                                </div>
+
+                                <!-- third featurette -->
+                                <hr class="featurette-divider">
+                                <div class="featurette" id="contact">
+                                    <img class="featurette-image img-circle img-responsive pull-right" style="height:75" src="http://www.sjmctx.com/global/images/new/sub-pages/right-side-photos/volunteering.jpg">
+                                    <h2 class="featurette-heading">
+                                        organization
+                                        <span class="text-muted">team of volunters.</span>
+                                    </h2>
+                                    <p> if physically going somewhere as a team is out of the question, volunteering as a team is still possible – if you’re willing to get creative. for instance, you could split your employees into teams and hold a contest for which team can bring in the most toys or canned goods. at the end of the campaign, hold a short – and fun – meeting to announce the winning team. when people are at their true best – not just the way they behave at work – it’s easier for bonding to occur.</pclass>
+
+                                    <p>another reason volunteering as a team works is because it forces people who may never have to work together to interact. since volunteer tasks often involve behind the scenes work, there’s usually plenty of time for your employees to talk. when the people who’ve never exchanged more than a few pleasantries with each other begin to talk, they can find common bonds that will help strengthen your team’s sense of unity.</p>
+
+                                </div>
+
+                                <hr class="featurette-divider">
+                                <!-- four featurette -->
+                                <div class="featurette" id="contact">
+                                    <img class="featurette-image img-circle img-responsive pull-left" style="width: 120" " height:150" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:and9gcqitirwjwrlubbhq84m03jc1m5sdntnqid63ed5nq9wfqtd19ep">
+                                    <h2 class="featurette-heading">
+                                        donate used stuff
+                                        <span class="text-muted"> .</span>
+                                    </h2>
+                                    <p>
+
+                                    <p>
+                                        your generous donations of clothing and other household goods make a big difference in the lives of america's veterans and their families. the items you donate generate the majority of the funding to support local, state, and national programs of the vietnam veterans of america.
+                                        1)schedule a donation pickup online
+                                        2)leave clearly labeled bags or boxes of your donated items outside your house on the designated day
+                                        3)our driver will pick up your donation , even it rain or shine!!!
+                                        </pclass>
+                                </div>
+                                <hr class="featurette-divider">
+                                <!-- four featurette -->
+                                <div class="featurette" id="contact">
+                                    <img class="featurette-image img-circle img-responsive pull-right" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:and9gcrwqcvhne8umblei0ofcp8hukz5ndzmgseq-burx_5kpjfgh2v7kq">
+                                    <h2 class="featurette-heading">
+                                        homeless people
+                                        <span class="text-muted"></span>
+                                    </h2>
+                                    <p>volunteers works to prevent and end homelessness through a range of support services including eviction prevention, emergency services, transitional housing and permanent affordable housing. once we engage homeless individuals, including youth and families with children, we stay with them for as long as it takes to return them to self-sufficiency.</p>
+                                    <p>
+                                        we operate a number of innovative supportive services programs to support our efforts of ending homelessness
+                                        1)emergency shelter
+                                        2)drop-in centers
+                                        3)permanent supportive housing
+                                        4)transitional housing
+                                    </p>
+                                </div>
+
+
+                               <div class="divider"></div>
+
+                            </div><!--/col-->
+                    </div><!--/container-->
+                        <!-- end of abt-->-->
+
+                    <div class="divider"></div>
+
+                    <section class="bg-3">
+                        <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.8)">clients &amp; partners</h2></div>
+                    </section>
+
+                    <div class="divider" id="section3"></div>
+
+                    <div class="bg-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-4 col-xs-6">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-thumbnail"><a href="#" title="renovations"><img src="http://dru-cdn.zipcar.com/sites/default/files/styles/content-portal-slideshow-slide/public/2_fi_givegab.jpg?itok=mb2wbxlt" class="img-responsive"></a></div>
+                                        <div class="panel-body">
+                                            <p>renovations</p>
+                                            <p></p>
+
+                                        </div>
+                                    </div><!--/panel-->
+                                </div><!--/col-->
+
+                                <div class="col-sm-4 col-xs-6">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-thumbnail"><a href="#" title="academic institutions"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:and9gcsbshckajoucy8skpmosv3piz0cf6afu5yriab2gyxagocokbyk" class="img-responsive"></a></div>
+                                        <div class="panel-body">
+                                            <p>academic institutions</p>
+                                            <p></p>
+
+                                        </div>
+                                    </div><!--/panel-->
+                                </div><!--/col-->
+                                <!--end of abt page--> *@>
+        <!--abt start-->
+        <!----------------------------------------------About start ---------------------------------------------------------------->
+        @*<div id="about">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 sub-head">
+                            <h1 data-wow-delay="0.3s" class="wow rollIn animated"><strong>ABOUT </strong></h1>
+                            <p class="sub-head"><h1>We Rise by Lifting Others </p></h1>
+                            <p> the portal is a first-of-its-kind service that provides applicants with all that they need to find a volunteer opportunity, and serves to help them make the best match possible between their personal requirements and their choice of volunteer work throughout america’s vast land base and expansive resources. the portal is a free, fast, and efficient way to connect volunteers with natural and cultural resources agencies.</p>
+                            <p>alternatively, you can search by key word search, partner agency and/or zip code search. the zip code search will search all opportunities within 30 miles of your search zip code. after you have explored the various opportunities and made a decision on which position(s) suits your needs, you can register on-line. notifications are sent immediately to applicants and to the coordinator who originally posted the position(s). after reviewing the applications, the volunteer coordinator will notify you of the next steps. </p>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="media wow rotateIn animated" data-wow-delay="0.2s">
+                                <div class="pull-left">
+                                    <i class="fa fa-recycle fa-4x  "></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Clean the community</h3>
+                                    <p>
+                                        How about a place where students or businesses could organize their own folks to clean up a section of their neighborhood and recycle the stuffs.
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="media wow rotateIn animated" data-wow-delay="0.3s">
+                                <div class="pull-left">
+                                    <i class="fa fa-history fa-4x  "></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="media-heading">FoodBank</h3>
+                                    <p> Our movers offer to pick up the unwanted, non-perishable food items from those who are moving and deliver it to their local food banks.
+                                    </p>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 wow bounceInDown animated" style="padding: 10px;" data-wow-delay="0.6s">
+                            <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+
+                                <div class="carousel-inner">
+                                    <div class="item">
+                                        <img src="https://www.bnl.gov/today/body_pics/2014/11/d0061114-candy-6thgrade-720px.jpg ">
+                                                                                </div>
+
+                                    <div class="item">
+                                     <img src="http://dru-cdn.zipcar.com/sites/default/files/styles/content-portal-slideshow-slide/public/2_fi_GiveGab.jpg?itok=MB2wbXlT" class="img-thumbnail" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <img src=" http://www.homesinjacksonvillefl.com/img/volunteers.jpg">
+                                    </div>
+                                    <div class="item active">
+                                        <img src="http://www.navy.mil/local/css/images/hi-res/131219-N-UX143-001.jpg">
+
+                                    </div>
+                                    <div class="item">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwvQJVbO2XUQjKBSjjP3_x7GeKpGkRDvyMOK0dajCUQXrNELIB">
+                                    </div>
+                                </div>
+                                <!--INDICATORS-->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-slider" data-slide-to="0" class=""></li>
+                                    <li data-target="#carousel-slider" data-slide-to="1" class=""></li>
+                                    <li data-target="#carousel-slider" data-slide-to="2" class="active"></li>
+                                    <li data-target="#carousel-slider" data-slide-to="2" class="active"></li>
+                                    <li data-target="#carousel-slider" data-slide-to="2" class="active"></li>
+
+                                </ol>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4">
+
+                            <div class="media wow rotateIn animated" data-wow-delay="0.4s">
+                                <div class="pull-left">
+                                    <i class="fa fa-star-o fa-4x  "></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Homeless people</h3>
+                                    <p>
+                                        volunteers works to prevent and end homelessness through a range of support services including eviction prevention, emergency services, transitional housing and permanent affordable housing.
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="Donate head-text stuff" data-wow-delay="0.5s">
+                                <div class="pull-left">
+                                    <i class="fa fa-life-ring fa-4x  "></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Organization</h3>
+                                    <p>
+                                        if physically going somewhere as a team is out of the question, volunteering as a team is still possible – if you’re willing to get creative. for instance, you could split your employees into teams and hold a contest for which team can bring in the most toys or canned goods. at the end of the campaign, hold a short – and fun – meeting to announce the winning team.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        *@
+        <div class="divider" id="section4"></div>
+        <div id="body" align="center">
+            <section class="featured">
+                <div class="content-wrapper">
+                    <hgroup class="title">
+                        <h1>ABOUT</h1>
+                    </hgroup>
+
+                </div>
+            </section>
+
+            @*<section class="content-wrapper main-content clear-fix">
+
+                    <p>
+                        test View : <a href="~/Views/Testing/Create.cshtml">Click Here!</a>
+                    </p>
+                </section>*@
+
+        </div>
+
+        <!----------------------------Location map start--------------------------------------------------------- -->
+        <div class="col-sm-10 col-sm-offset-1">
+            <h1>Details Page hass to come here </h1>
+        </div>
+
+        <div id="map-canvas"></div>
+
+        <hr>
+
+        <div class="col-sm-8"></div>
+        <div class="col-sm-3 pull-right">
+
+            @*<address>
+                    The Firm, Inc.<br>
+                    <span id="map-input">
+                        1500 Main Street<br>
+                        Springfield, MA 01115
+                    </span><br>
+                    P: (413) 700-5999
+                </address>*@
+
+            @*<address>
+                    <strong>Email Us</strong><br>
+                    <a href="mailto:#">first.last@example.com</a>
+                </address>*@
+        </div>
+
+    </div><!--/row-->
+
+    <div class="divider" id="section5"></div>
+    <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Contact details!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+    <div class="row">
+
+        <hr>
+
+        <div class="col-sm-9 col-sm-offset-1">
+
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <h1>Contact Us</h1>
+                </div>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" id="firstName" name="name" placeholder="Your Name">
+                </div>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="organization" name="organization" placeholder="Company or Organization">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-xs-5">
+                    <input type="text" class="form-control" name="email" placeholder="Email">
+                </div>
+                <div class="col-xs-5">
+                    <input type="text" class="form-control" name="phone" placeholder="Phone">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-xs-10">
+                    <textarea class="form-control" placeholder="Comments"></textarea>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-xs-10">
+                    <button class="btn btn-default pull-right">Contact Us</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div><!--/row-->
+
+    <div class="container">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+
+            <ul class="list-inline center-block">
+                <li><a href="http://facebook.com/bootply"><img src="assets/example/soc_fb.png"></a></li>
+                <li><a href="http://twitter.com/bootply"><img src="assets/example/soc_tw.png"></a></li>
+                <li><a href="http://google.com/+bootply"><img src="assets/example/soc_gplus.png"></a></li>
+                <li><a href="http://pinterest.com/in1"><img src="assets/example/soc_pin.png"></a></li>
+            </ul>
+
+        </div><!--/col-->
+    </div><!--/container-->
+    </div><!--/wrap-->
+
+    <div id="footer">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <img src="~/Images/GoodQRma_logo.png" />
-
-                @Html.ActionLink("GoodQRma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">               
-                   
-
-                    <li>@Html.ActionLink("View Event", "Index", "Event")</li>
-                    <li>@Html.ActionLink("Create Event", "Create", "Event")</li>
-
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                   
-
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+            <p class="text-muted">Copyright ©2014 ACME, Inc.</p>
         </div>
     </div>
 
-    
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <center>
-                    <p>&copy; @DateTime.Now.Year - GoodQRma.com</p>
-                    <img src="~/Images/GoodQRma_logo.png" />
-                </center>
-            </footer>
-        </div>
+    <ul class="nav pull-right scroll-top">
+        <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
+    </ul>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @Scripts.Render("~/bundles/jqueryui")
-        @Styles.Render("~/Content/themes/base/css")
-        @RenderSection("scripts", required: false)
+
+    <div class="modal" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal">×</button>
+                    <h3 class="modal-title"></h3>
+                </div>
+                <div class="modal-body">
+                    <div id="modalCarousel" class="carousel">
+
+                        <div class="carousel-inner">
+
+                        </div>
+
+                        <a class="carousel-control left" href="#modaCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                        <a class="carousel-control right" href="#modalCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript' src="assets/js/jquery.min.js"></script>
+    <script type='text/javascript' src="assets/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
+    <script type='text/javascript' src="assets/js/the-firm.js"></script>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - GoodQRma.com</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+
+    @Styles.Render("~/Content/themes/base/css")
+
+    @RenderSection("scripts", required: false)
+
 </body>
+
 </html>
+
