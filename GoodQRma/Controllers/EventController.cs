@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GoodQRma.Models;
+using Microsoft.AspNet.Identity;
 
 namespace GoodQRma.Controllers
 {
@@ -28,10 +29,58 @@ namespace GoodQRma.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Event @event = db.Events.Find(id);
+
             if (@event == null)
             {
                 return HttpNotFound();
             }
+            string currentUserID = User.Identity.GetUserId();
+
+            var currentUser = (from u in db.Users
+                               where u.Id == currentUserID
+                               select u).Include("Events").Single();
+            /*
+            if(currentUser.Events.Contains(@event))
+            {
+                ViewBag.Here = "Opt Out";
+            }
+            else
+            {
+                ViewBag.Here = "Volunteer!";
+            }
+            */
+
+            ViewBag.Here = currentUser.Events.Contains(@event) ? "Opt Out" : "Volunteer!";
+
+            return View(@event);
+        }
+
+        //POST: Event/Details
+        [HttpPost]
+        [ActionName("Details")]
+        public ActionResult ChangeAttendance(int? id)
+        {
+            var idid = User.Identity.GetUserId();
+            ApplicationUser user = db.Users.Single(u => u.Id == idid);
+            Event @event = db.Events.Single(e => e.eventID == id);
+
+            if(user.Events.Contains(@event))
+            {
+                @event.Users.Remove(user);
+                user.Events.Remove(@event);
+                ViewBag.Here = "Volunteer!";
+
+                db.SaveChanges();
+            }
+            else
+            {
+                @event.Users.Add(user);
+                user.Events.Add(@event);
+                ViewBag.Here = "Leave";
+
+                db.SaveChanges();
+            }
+
             return View(@event);
         }
 
