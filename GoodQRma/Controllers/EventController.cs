@@ -23,9 +23,39 @@ namespace GoodQRma.Controllers
           
         // GET: Event
           [AllowAnonymous]
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            return View(db.Events.ToList());
+            ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            var events = from v in db.Events
+                         select v;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                events = events.Where(v => v.eventType.Contains(searchString));
+
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    events = events.OrderByDescending(v => v.eventType);
+                    break;
+                case "Date":
+                    events = events.OrderBy(v => v.eventDate);
+                    break;
+                case "date_desc":
+                    events = events.OrderByDescending(v => v.eventDate);
+                    break;
+                default:
+                    events = events.OrderBy(v => v.eventType);
+                    break;
+
+            }
+
+
+            return View(events.ToList());
         }
 
         // GET: Event/Details/5
