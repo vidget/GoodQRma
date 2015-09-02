@@ -379,7 +379,7 @@ namespace GoodQRma.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, Address = model.Address, City = model.City,State = model.State, ZipCode = model.ZipCode, Country = model.Country  };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
