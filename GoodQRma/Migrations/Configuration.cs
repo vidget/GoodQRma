@@ -22,7 +22,7 @@ namespace GoodQRma.Migrations
                     {
                         eventID=1,
                         //image=0,
-                        userID=1,
+                        userID="1",   
                         name="Rouge River Clean-Up",
                         description ="Come help us clean up the old Rouge River, volunteers will be helping to remove old shopping carts and garbage from the river. Dress warm and bring extra dry clothes", 
                         eventDate=DateTime.Now, 
@@ -41,7 +41,7 @@ namespace GoodQRma.Migrations
                     {
                         eventID=2,
                         //image=0,
-                        userID=1,
+                        userID="1",
                         name="Summer Stevens Clean Up Parade",
                         description ="Were working to make Dearborn a cleaner place to live. We organize clean up groups on the day to help pick up trash at Summer Stevens park", 
                         eventDate=DateTime.Now, 
@@ -61,7 +61,7 @@ namespace GoodQRma.Migrations
                     {   
                         eventID=3,
                         //image=0,
-                        userID=2,
+                        userID="2",
                         name="Detroit Rescue Misson",
                         description ="We need help at our soup kitchen feeding the hungry", 
                         eventDate=DateTime.Now, 

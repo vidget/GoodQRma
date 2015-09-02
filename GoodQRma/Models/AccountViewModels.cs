@@ -81,6 +81,49 @@ namespace GoodQRma.Models
         public string Email { get; set; }
     }
 
+    public class UserProfileViewModel 
+    { 
+       
+        //[Display(Name = "Email")]
+      
+       // public string Email { get; set; }
+
+      
+        //[Display(Name = "Password")]
+       // public string Password { get; set; }
+
+       
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+
+      
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+      
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+       
+        [Display(Name = "Zip Code")]
+        public string ZipCode { get; set; }
+
+
+        
+        [Display(Name = "Country")]
+        public string Country { get; set; } 
+
+    }
+
+
+
+
+
     public class LoginViewModel
     {
         [Required]

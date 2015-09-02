@@ -17,7 +17,7 @@ namespace GoodQRma.Models
          
             //[StringLength(10, ErrorMessage = "Max10 digits")]
             [Display(Name = "UserID")]
-            public virtual int? userID { get; set; }
+            public virtual string userID { get; set; }
 
             //[Required]
             [Display(Name = "Image")]
