@@ -40,7 +40,41 @@ namespace GoodQRma.Controllers
             {
                 return HttpNotFound();
             }
+
+            string currentUserID = User.Identity.GetUserId();
+            var currentUser = db.Users.Single(u => u.Id == currentUserID);
+
+            ViewBag.Here = currentUser.Events.Contains(@event) ? "Leave" : "Volunteer!";
+
             return View(@event);
+        }
+
+         [HttpPost]
+         [ActionName("Details")]
+         public ActionResult ChangeAttendance(int? id)
+        {
+            var idid = User.Identity.GetUserId();
+            ApplicationUser user = db.Users.Single(u => u.Id == idid);
+            Event @event = db.Events.Single(e => e.eventID == id);
+
+             if(user.Events.Contains(@event))
+             {
+                 @event.Users.Remove(user);
+                 user.Events.Remove(@event);
+                 ViewBag.Here = "Volunteer!";
+
+                 db.SaveChanges();
+             }
+             else
+             {
+                 @event.Users.Add(user);
+                 user.Events.Add(@event);
+                 ViewBag.Here = "Leave";
+
+                 db.SaveChanges();
+             }
+
+             return View(@event);
         }
          
         // GET: Event/Create
