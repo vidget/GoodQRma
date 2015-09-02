@@ -39,19 +39,20 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <div id="googleMap" style="width:890px;height:250px; float:left"></div>
-<div>
-    @using (Html.BeginForm("Details", "Event", FormMethod.Post, new { eID = Model.eventID, uID = User.Identity.GetUserId() }))
-    {
 
-    <input type="submit" name="Details" value="@ViewBag.Here" />
-
-    }
-</div>
 <div>
 
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=http://maps.google.com?q=@Model.address1,@Model.city,@Model.state,@Model.zipCode " ; float:right />
 
     <h4>Event</h4>
+    <div>
+        @using (Html.BeginForm("Details", "Event", FormMethod.Post, new { eID = Model.eventID, uID = User.Identity.GetUserId() }))
+        {
+
+            <input type="submit" name="Details" value="@ViewBag.Here" />
+
+        }
+    </div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
