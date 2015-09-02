@@ -1,22 +1,22 @@
 namespace GoodQRma.Migrations
 {
-    using GoodQRma.Models;
     using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using GoodQRma.Models;
+    using System.Collections.Generic;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<GoodQRma.DAL.goodQRmaContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<GoodQRma.Models.ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "GoodQRma.DAL.goodQRmaContext";
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(GoodQRma.DAL.goodQRmaContext context)
+        protected override void Seed(GoodQRma.Models.ApplicationDbContext context)
         {
+<<<<<<< HEAD
            /* var users = new List<User>
                 {
                     new User{userID=1,profileName ="Greg",address1 = "22859 Beech", 
@@ -53,49 +53,45 @@ namespace GoodQRma.Migrations
 
             // EVENT MODEL
 
+=======
+>>>>>>> vidget/master
             var events = new List<Event>
                 {
                     new Event
                     {
                         eventID=1,
-                        image=0,
-                        userID=1,
+                        //image=0,
+                        userID="1",   
                         name="Rouge River Clean-Up",
                         description ="Come help us clean up the old Rouge River, volunteers will be helping to remove old shopping carts and garbage from the river. Dress warm and bring extra dry clothes", 
                         eventDate=DateTime.Now, 
                         eventTime=DateTime.Now, 
                         eventType="Clean Up",
                         address1 ="22051 Cherry Hill Street",
-                        address2="",city="Dearborn",
                         state ="Michigan",
                         zipCode="48124",
                         country="USA",
                         contact="Sally Jones",
                         phone="313-792-9900",
-                        gpsLong=-83.248262,
-                        gpsLat=42.312365,
                         eventURL="http://www.therouge.org/"
                     },
 
                     new Event
                     {
                         eventID=2,
-                        image=0,
-                        userID=1,
+                        //image=0,
+                        userID="1",
                         name="Summer Stevens Clean Up Parade",
                         description ="Were working to make Dearborn a cleaner place to live. We organize clean up groups on the day to help pick up trash at Summer Stevens park", 
                         eventDate=DateTime.Now, 
                         eventTime=DateTime.Now, 
                         eventType="Clean Up",
                         address1 ="2600 Stephens St",
-                        address2="",city="Dearborn",
                         state ="Michigan",
                         zipCode="48124",
                         country="USA",
                         contact="Mike Allen",
                         phone="313-555-4567",
-                        gpsLong= -83.254373,
-                        gpsLat= 42.29628, 
                         eventURL="http://www.cityofdearborn.org/community/recreation-parks/outdoor-pools"
                     },
 
@@ -103,22 +99,20 @@ namespace GoodQRma.Migrations
                     new Event
                     {   
                         eventID=3,
-                        image=0,
-                        userID=2,
+                        //image=0,
+                        userID="2",
                         name="Detroit Rescue Misson",
                         description ="We need help at our soup kitchen feeding the hungry", 
                         eventDate=DateTime.Now, 
                         eventTime=DateTime.Now, 
                         eventType="Homeless",
                         address1 ="150 Stimson St",
-                        address2="",city="Detroit",
+                        city="Detroit",
                         state ="Michigan",
                         zipCode="48201",
                         country="USA",
                         contact="Mike Allen",
                         phone="(313) 993-4700",
-                        gpsLong= -83.05996,
-                        gpsLat= 42.345477,
                         eventURL="http://drmm.org/"
                     }
 
@@ -127,16 +121,6 @@ namespace GoodQRma.Migrations
 
             events.ForEach(p => context.Events.AddOrUpdate(s => s.eventID, p));
 
-
-            context.SaveChanges();
-
-            foreach (var ev in context.Events)
-            {
-                foreach (var user in context.Users)
-                {
-                    ev.Users.Add(user);
-                }
-            }
 
             context.SaveChanges();
         }

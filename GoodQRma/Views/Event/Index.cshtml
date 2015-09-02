@@ -9,17 +9,32 @@
     }
 }
 
+<<<<<<< HEAD
 
     <h3>Where to score GoodQRMa!</h3>
 
     <p>
         @using (Html.BeginForm())
+=======
+<h2>Here's where to find GoodQRma!</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find GoodQRma</title>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script>
+        var list1 = [];
+        var bounds = new google.maps.LatLng();
+        function listToArray() {
+            @foreach(var x in addresses)
+>>>>>>> vidget/master
         {
         <p>
             Search by event type: @Html.TextBox("searchString") <br />
             <input type="submit" value="Search" />
         </p>
         }
+<<<<<<< HEAD
 
         <!DOCTYPE HTML>
         <html>
@@ -67,11 +82,38 @@
                             map.setCenter(pos);
                         }, function () {
                             handleLocationError(true, infoWindow, map.getCenter());
+=======
+        listToArray();
+        //alert(list1.join('\n'));
+        var geocoder;
+        var map;
+        function initialize() {
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(42.3314, -83.0458);
+            var mapOptions = {
+                zoom: 10,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+            setMarkers();
+        }
+        function setMarkers() {
+            for (var i = 0; i < list1.length; i++) {
+                geocoder.geocode({ 'address': list1[i] }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                        //alert(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+>>>>>>> vidget/master
                         });
                     } else {
                         // Browser doesn't support Geolocation
                         handleLocationError(false, infoWindow, map.getCenter());
                     }
+<<<<<<< HEAD
 
                 }
 
@@ -108,11 +150,22 @@
         </body>
     </html>
 
+=======
+                });
+            }
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    </head>
+</html>
+<div id="map-canvas" style="width:100%;height:300px;"></div>
+>>>>>>> vidget/master
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
         <tr>
+<<<<<<< HEAD
 
             <th>
                 @Html.ActionLink("Event", "Index", new { sortOrder = ViewBag.NameSortParm })
@@ -134,6 +187,37 @@
 
             <th>
                 @Html.ActionLink("City", "Index", new { sortOrder = ViewBag.NameSortParm })
+=======
+            <th>
+                @Html.DisplayNameFor(model => model.userID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eventType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eventDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eventTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numVolunteersNeeded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+>>>>>>> vidget/master
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.state)
@@ -141,20 +225,50 @@
             <th>
                 @Html.DisplayNameFor(model => model.zipCode)
             </th>
+<<<<<<< HEAD
 
 
 
+=======
+            <th>
+                @Html.DisplayNameFor(model => model.country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eventURL)
+            </th>
+>>>>>>> vidget/master
             <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
             <tr>
+<<<<<<< HEAD
 
                 <td>
                     @Html.DisplayFor(modelItem => item.name)
                 </td>
 
+=======
+                <td>
+                    @Html.DisplayFor(modelItem => item.userID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+>>>>>>> vidget/master
                 <td>
                     @Html.DisplayFor(modelItem => item.eventType)
                 </td>
@@ -164,11 +278,20 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.eventTime)
                 </td>
+<<<<<<< HEAD
 
                 <td>
                     @Html.DisplayFor(modelItem => item.address1)
                 </td>
 
+=======
+                <td>
+                    @Html.DisplayFor(modelItem => item.numVolunteersNeeded)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address1)
+                </td>
+>>>>>>> vidget/master
                 <td>
                     @Html.DisplayFor(modelItem => item.city)
                 </td>
@@ -178,8 +301,23 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.zipCode)
                 </td>
+<<<<<<< HEAD
 
 
+=======
+                <td>
+                    @Html.DisplayFor(modelItem => item.country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.eventURL)
+                </td>
+>>>>>>> vidget/master
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.eventID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.eventID }) |

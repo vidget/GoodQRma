@@ -6,14 +6,14 @@ namespace GoodQRma.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class newFiles : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class userIdPhotoString : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newFiles));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(userIdPhotoString));
         
         string IMigrationMetadata.Id
         {
-            get { return "201508230420129_newFiles"; }
+            get { return "201509020338482_userIdPhotoString"; }
         }
         
         string IMigrationMetadata.Source

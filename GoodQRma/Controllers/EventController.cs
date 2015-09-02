@@ -6,15 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using GoodQRma.DAL;
 using GoodQRma.Models;
-using Rotativa;
+using Microsoft.AspNet.Identity;
 
 namespace GoodQRma.Controllers
 {
     public class EventController : Controller
     {
-        private goodQRmaContext db = new goodQRmaContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Event
         /*public ActionResult Index(string id)
@@ -38,6 +37,7 @@ namespace GoodQRma.Controllers
             var events = from s in db.Events
                            select s;
 
+<<<<<<< HEAD
             if (!string.IsNullOrEmpty(searchString))
             {
                 events = events.Where(s => s.eventType.Contains(searchString));
@@ -84,6 +84,8 @@ namespace GoodQRma.Controllers
             return View("EventPoster", "_Layout2", @event);
         }
 
+=======
+>>>>>>> vidget/master
         // GET: Event/Details/5
         public ActionResult Details(int? id)
         {
@@ -110,12 +112,25 @@ namespace GoodQRma.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "eventID,userID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,address2,city,state,zipCode,country,contact,phone,gpsLong,gpsLat,eventURL")] Event @event)
+        public ActionResult Create([Bind(Include = "eventID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,city,state,zipCode,country,contact,phone,eventURL")] Event @event)
         {
             if (ModelState.IsValid)
             {
+
+                
+
+                @event.userID = User.Identity.GetUserId();
+
+            
+
+
                 db.Events.Add(@event);
                 db.SaveChanges();
+
+
+                
+
+
                 return RedirectToAction("Index");
             }
 
@@ -142,7 +157,7 @@ namespace GoodQRma.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "eventID,userID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,address2,city,state,zipCode,country,contact,phone,gpsLong,gpsLat,eventURL")] Event @event)
+        public ActionResult Edit([Bind(Include = "eventID,userID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,city,state,zipCode,country,contact,phone,eventURL")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -152,6 +167,28 @@ namespace GoodQRma.Controllers
             }
             return View(@event);
         }
+
+
+        //[Authorize(Roles = "Member")]
+        public ActionResult EventPoster(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+
+            Event @event = db.Events.Find(id);
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+
+            
+            return View("EventPoster", "_Layout2", @event);
+        }
+
 
         // GET: Event/Delete/5
         public ActionResult Delete(int? id)

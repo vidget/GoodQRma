@@ -10,7 +10,11 @@
     <!-- Portfolio Item Heading -->
     <div class="row">
         <div class="col-lg-12">
+<<<<<<< HEAD
             P { text-align: center } <h2><font face="castellar"><img src="~/Images/GoodQRmaLOGO_Transparent_Medium.png"></font></h2>
+=======
+            <center> <h2 font face="castellar"><img src="~/Images/GoodQRmaLOGO_Transparent_Medium.png"></font></h2></center>
+>>>>>>> vidget/master
             <h4><font face="Lucida Handwriting "><center>"Alone we can do so little,together we can do so much"</center></font></h4>
 
             
@@ -30,7 +34,11 @@
                 <dt>Email</dt>
                 <dd><a href="mailto:info@GoodQRma.com" title="Click to send us an email">info@GoodQRma.com</a></dd>
                 <dt>Telephone</dt>
+<<<<<<< HEAD
                 <dd><a href="tel:00306977447033" title="Click to call us">+44 2163930503</a></
+=======
+                <dd><a href="tel:00306977447033" title="Click to call us">313-555-1212</a></
+>>>>>>> vidget/master
                 <dd>
                 <dt>Address</dt>
                 <dd>
@@ -51,6 +59,7 @@
 
 </div>
 <h3>How can I help you </h3>
+<<<<<<< HEAD
 
 @using (Html.BeginForm())
 {
@@ -96,3 +105,52 @@
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
 }
+=======
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.To,htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "form-control" }})
+                @Html.ValidationMessageFor(model => model.To, "" , new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.From,htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.From, new {htmlAttributes=new { @class = "form-control" }})
+                @Html.ValidationMessageFor(model => model.From)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Subject, new {htmlAttributes=new { @class = "form-control" }})
+                @Html.ValidationMessageFor(model => model.Subject)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Body,htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Body, new { htmlAttributes=new {@class = "form-control" }})
+                @Html.ValidationMessageFor(model=> model.Body)
+            </div>
+        </div><div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Send" />
+            </div>
+        </div>
+        }
+
+        @section Scripts{
+                    @Scripts.Render("~/bundles/jqueryval")
+        }
+
+
+>>>>>>> vidget/master

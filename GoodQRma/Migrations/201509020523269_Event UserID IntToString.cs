@@ -3,16 +3,16 @@ namespace GoodQRma.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class LoginTiedtoUser : DbMigration
+    public partial class EventUserIDIntToString : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.User", "userIDLogin", c => c.String());
+            AlterColumn("dbo.Event", "userID", c => c.String());
         }
         
         public override void Down()
         {
-            DropColumn("dbo.User", "userIDLogin");
+            AlterColumn("dbo.Event", "userID", c => c.Int());
         }
     }
 }

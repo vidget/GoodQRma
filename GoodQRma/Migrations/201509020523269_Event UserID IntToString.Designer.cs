@@ -6,19 +6,19 @@ namespace GoodQRma.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class LoginTiedtoUser : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class EventUserIDIntToString : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(LoginTiedtoUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(EventUserIDIntToString));
         
         string IMigrationMetadata.Id
         {
-            get { return "201508280135585_LoginTiedtoUser"; }
+            get { return "201509020523269_Event UserID IntToString"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target
