@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using GoodQRma.Models;
 using System.ComponentModel.DataAnnotations;
+using PagedList;
+
 
 namespace GoodQRma.Models
 {
@@ -58,7 +60,7 @@ namespace GoodQRma.Models
 
             //[Required]
             [StringLength(50, ErrorMessage = "Not a valid Address")]
-            [Display(Name = "Address")]
+            [Display(Name = "Address1")]
             public virtual string address1 { get; set; }
 
             //[Required]

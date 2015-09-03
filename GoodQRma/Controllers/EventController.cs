@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using GoodQRma.Models;
 using Microsoft.AspNet.Identity;
+using PagedList;
+
 
 namespace GoodQRma.Controllers
 {
@@ -15,18 +17,28 @@ namespace GoodQRma.Controllers
      [Authorize]
     public class EventController : Controller
     {
-
        
-         
         ApplicationDbContext db = new ApplicationDbContext(); 
 
           
         // GET: Event
-          [AllowAnonymous]
-        public ActionResult Index(string sortOrder, string searchString)
+        [AllowAnonymous]
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewBag.currentSort = sortOrder;
             ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
 
             var events = from v in db.Events
                          select v;
@@ -54,8 +66,11 @@ namespace GoodQRma.Controllers
 
             }
 
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
 
-            return View(events.ToList());
+
+            return View(events.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Event/Details/5
