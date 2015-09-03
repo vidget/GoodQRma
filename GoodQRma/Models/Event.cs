@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using GoodQRma.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace GoodQRma.Models
 {
@@ -109,6 +110,7 @@ namespace GoodQRma.Models
                 string fullAddress = address1 + ", " + city + ", " + state + ", " + zipCode;
                 return fullAddress;
             }
+        public virtual ICollection<File> Files { get; set; }
 
         }
     }

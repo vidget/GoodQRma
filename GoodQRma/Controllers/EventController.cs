@@ -31,11 +31,19 @@ namespace GoodQRma.Controllers
         // GET: Event/Details/5
         public ActionResult Details(int? id)
         {
+
+            
+
+
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Event @event = db.Events.Find(id);
+
+            db.Events.Include(s => s.Files).SingleOrDefault(s => s.eventID == id);
+
             if (@event == null)
             {
                 return HttpNotFound();
@@ -89,17 +97,30 @@ namespace GoodQRma.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "eventID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,city,state,zipCode,country,contact,phone,eventURL")] Event @event)
+        public ActionResult Create([Bind(Include = "eventID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,city,state,zipCode,country,contact,phone,eventURL")] Event @event, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
 
                 
-
+                //Ties the logged in USER to the created EVENT
                 @event.userID = User.Identity.GetUserId();
 
-            
 
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var avatar = new File
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Avatar,
+                        ContentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        avatar.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    @event.Files = new List<File> { avatar };
+                }
 
                 db.Events.Add(@event);
                 db.SaveChanges();

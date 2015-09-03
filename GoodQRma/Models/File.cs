@@ -14,8 +14,8 @@ namespace GoodQRma.Models
         public string ContentType { get; set; }
         public byte[] Content { get; set; }
         public FileType FileType { get; set; }
-        public string userIdPhoto { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public int EventId { get; set; } 
+        public virtual Event Event { get; set; }
     }
 }
-    
+      
