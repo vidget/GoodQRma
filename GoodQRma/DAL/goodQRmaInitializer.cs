@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity;
 namespace GoodQRma.DAL
 {
    
-        public class goodQRmaInitializer : System.Data.Entity.DropCreateDatabaseAlways<ApplicationDbContext>
+        public class goodQRmaInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<ApplicationDbContext>
         {
 
             protected override void Seed(ApplicationDbContext context)
@@ -134,11 +134,6 @@ namespace GoodQRma.DAL
                     UserManager.Create(user);
                     UserManager.AddToRole(user.Id, "Member");
                 }
-
-
-
-
-
 
 
 
