@@ -36,11 +36,11 @@ namespace GoodQRma.Models
 
             //[Required]
             //[RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
-            [Display(Name = "Type of Event")]
+            [Display(Name = "Category")]
             public virtual string eventType { get; set; }
 
            // [Required]
-            [Display(Name = "Event Date")]
+            [Display(Name = "Date")]
             [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
             [DataType(DataType.Date)]
             public virtual DateTime eventDate { get; set; }
@@ -49,11 +49,11 @@ namespace GoodQRma.Models
             //[Required]
             [DataType(DataType.Time)]
             [DisplayFormat(DataFormatString = "{0:T}")]
-            [Display(Name = "Event Time")]
+            [Display(Name = "Time")]
             public virtual DateTime eventTime { get; set; }
 
            // [Required]
-            [Display(Name = "Number of Volunteers Needed")]
+            [Display(Name = "Volunteers Needed")]
             public virtual int? numVolunteersNeeded { get; set; }
 
             //[Required]
@@ -88,14 +88,14 @@ namespace GoodQRma.Models
             //[StringLength(25, ErrorMessage = "Give your first Name alone ")]
         
             [MaxLength(25)]
-            [Display(Name = "ContactName")]
+            [Display(Name = "Site Contact")]
             public virtual string contact { get; set; }
 
 
             //[Required]
             //[StringLength(15, ErrorMessage = "Not a valid Phone number")]
             [Phone]
-            [Display(Name = "PhoneNumber")]
+            [Display(Name = "Phone")]
             public virtual string phone { get; set; }
 
             public virtual string eventURL { get; set; }
