@@ -3,138 +3,111 @@
 }
 @*<h3>@ViewBag.Message</h3>*@
 
-<!-- Navigation -->
-<div class="navbar navbar-inverse navbar-fixed-top">
+<!-------------------------ABOUT-------------------------------------------------------------------------------------->
+
+<div id="about">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="row text-center">
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 sub-head">
+                <h1 data-wow-delay="0.3s" class="wow rollIn animated"><strong>ABOUT </strong></h1>
+                @*<p class="sub-head"><h1> </p></h1>*@
+                <p> The portal is a first-of-its-kind service that provides applicants with all that they need to find a volunteer opportunity, and serves to help them make the best match possible between their personal requirements and their choice of volunteer work throughout america’s vast land base and expansive resources. the portal is a free, fast, and efficient way to connect volunteers with natural and cultural resources agencies.</p>
 
-            <img src="~/Images/GoodQRma_logo.png" />
-
-            @Html.ActionLink("GoodQRma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+        <div class="row ">
+            <div class="col-lg-4 col-md-4">
+                <div class="media wow rotateIn animated" data-wow-delay="0.2s">
+                    <div class="pull-left">
+                        <i class="fa fa-recycle fa-4x  "></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Clean the community</h3>
+                        <p>
+                            How about a place where students or businesses could organize their own folks to clean up a section of their neighborhood and recycle the stuffs.
+                        </p>
 
-                <li>@Html.ActionLink("View Event", "Index", "Event")</li>
-                <li>@Html.ActionLink("Create Event", "Create", "Event")</li>
+                    </div>
+                </div>
+                <div class="media wow rotateIn animated" data-wow-delay="0.3s">
+                    <div class="pull-left">
+                        <i class="fa fa-history fa-4x  "></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">FoodBank</h3>
+                        <p>
+                            Our movers offer to pick up the unwanted, non-perishable food items from those who are moving and deliver it to their local food banks.
+                        </p>
 
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Admin", "Index", "Role")</li>
+                    </div>
+                </div>
 
-            </ul>
-            @Html.Partial("_LoginPartial")
+            </div>
+            <div class="col-lg-4 col-md-4 wow bounceInDown animated" style="padding: 10px;" data-wow-delay="0.6s">
+                <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+
+                    <div class="carousel-inner">
+                        <div class="item">
+                            <img src="https://www.bnl.gov/today/body_pics/2014/11/d0061114-candy-6thgrade-720px.jpg ">
+                        </div>
+
+                        <div class="item">
+                            <img src="http://dru-cdn.zipcar.com/sites/default/files/styles/content-portal-slideshow-slide/public/2_fi_GiveGab.jpg?itok=MB2wbXlT" class="img-thumbnail" alt="">
+                        </div>
+                        <div class="item">
+                            <img src=" http://www.homesinjacksonvillefl.com/img/volunteers.jpg">
+                        </div>
+                        <div class="item active">
+                            <img src="http://www.navy.mil/local/css/images/hi-res/131219-N-UX143-001.jpg">
+
+                        </div>
+                        <div class="item">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwvQJVbO2XUQjKBSjjP3_x7GeKpGkRDvyMOK0dajCUQXrNELIB">
+                        </div>
+                    </div>
+                    <!--INDICATORS-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-slider" data-slide-to="0" class=""></li>
+                        <li data-target="#carousel-slider" data-slide-to="1" class=""></li>
+                        <li data-target="#carousel-slider" data-slide-to="2" class="active"></li>
+                        <li data-target="#carousel-slider" data-slide-to="2" class="active"></li>
+                        <li data-target="#carousel-slider" data-slide-to="2" class="active"></li>
+
+                    </ol>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+
+                <div class="media wow rotateIn animated" data-wow-delay="0.4s">
+                    <div class="pull-left">
+                        <i class="fa fa-star-o fa-4x  "></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Homeless people</h3>
+                        <p>
+                            volunteers works to prevent and end homelessness through a range of support services including eviction prevention, emergency services, transitional housing and permanent affordable housing.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="Donate head-text stuff" data-wow-delay="0.5s">
+                    <div class="pull-left">
+                        <i class="fa fa-life-ring fa-4x  "></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Organization</h3>
+                        <p>
+                            if physically going somewhere as a team is out of the question, volunteering as a team is still possible – if you’re willing to get creative. for instance, you could split your employees into teams and hold a contest for which team can bring in the most toys or canned goods. at the end of the campaign, hold a short – and fun – meeting to announce the winning team.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
-
-<!-- Full Width Image Header -->
-<header class="header-image">
-    <div class="headline">
-        <div class="container">
-
-
-
-            <h2 align=center><img src="~/Images/GoodQRmaLOGO_Transparent_Medium.png"  ></h2>
-            <h4 align= center><font face="Lucida Handwriting ">Alone we can do so little,together we can do so much</font></h4>
-        </div>
-    </div>
-</header>
-<p > The Portal is a first-of-its-kind service that provides applicants with all that they need to find a volunteer opportunity, and serves to help them make the best match possible between their personal requirements and their choice of volunteer work throughout America’s vast land base and expansive resources. The Portal is a free, fast, and efficient way to connect volunteers with natural and cultural resources agencies.</p>
-<p >Alternatively, you can search by Key Word Search, Partner Agency and/or Zip Code Search. The Zip Code Search will search all opportunities within 30 miles of your search zip code. After you have explored the various opportunities and made a decision on which position(s) suits your needs, you can register on-line. Notifications are sent immediately to applicants and to the coordinator who originally posted the position(s). After reviewing the applications, the volunteer coordinator will notify you of the next steps. </p>
-<!-- Page Content -->
-<div class="container">
-    <hr class="featurette-divider">
-    <!-- First Featurette -->
-    <div class="featurette" id="about">
-        <img class="featurette-image img-circle img-responsive pull-right" src=" https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRdBIaft8L12qwBNPhte1rMZki74h_mDGqfoQcTIa4Cb1rDfsCK">
-        <h2 class="featurette-heading">
-            Keep the County Clean
-            <span class="text-muted">-Volunteer</span>
-        </h2>
-        <p >How about a place where a volunteer could find a local cleanup and volunteer a couple hours of their time? How about a place where students or businesses could organize their own folks to clean up a section of their neighborhood - whether in the water, on the coastline, or on land. </p>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <!-- Second Featurette -->
-    <div class="featurette" id="services">
-        <img class="featurette-image img-circle img-responsive pull-left" src="https://lh3.googleusercontent.com/-I8xzk0WK3A4/Va_jXbIS2LI/AAAAAAAAySo/_5ZLNmcOLwE/w450-h250/food-pantry-clipart.gif"><br />
-        <h2 class=" featurette-heading">
-            Food Drive
-            <span class="text-muted">-Stop Hunger Now </span>
-        </h2>
-        <p >
-            As you may be aware, many people throw out a good deal of “stuff” when they move.  Unfortunately, a lot of this “stuff” is food that could be delivered to a family in need rather than thrown away.  That’s where we come in ….  Our movers offer to pick up the unwanted, non-perishable food items from those who are moving and deliver it to their local food banks.
-        </p>
-    </div>
-
-    <!-- Third Featurette -->
-    <hr class="featurette-divider">
-    <div class="featurette" id="contact">
-        <img class="featurette-image img-circle img-responsive pull-right" style="height:75" src="http://www.sjmctx.com/global/images/new/sub-pages/right-side-photos/volunteering.jpg">
-        <h2 class="featurette-heading">
-            Organization
-            <span class="text-muted">Team of volunters.</span>
-        </h2>
-        <p > If physically going somewhere as a team is out of the question, volunteering as a team is still possible – if you’re willing to get creative. For instance, you could split your employees into teams and hold a contest for which team can bring in the most toys or canned goods. At the end of the campaign, hold a short – and fun – meeting to announce the winning team. When people are at their true best – not just the way they behave at work – it’s easier for bonding to occur.</pclass>
-
-        <p >Another reason volunteering as a team works is because it forces people who may never have to work together to interact. Since volunteer tasks often involve behind the scenes work, there’s usually plenty of time for your employees to talk. When the people who’ve never exchanged more than a few pleasantries with each other begin to talk, they can find common bonds that will help strengthen your team’s sense of unity.</p>
-
-    </div>
-
-    <hr class="featurette-divider">
-    <!-- four Featurette -->
-    <div class="featurette" id="contact">
-        <img class="featurette-image img-circle img-responsive pull-left" style="width: 120" " height:150" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQitirWJWRlubbHq84M03JC1m5SdNtNQId63ed5nQ9WFqTd19EP">
-        <h2 class="featurette-heading">
-            Donate used stuff
-            <span class="text-muted"> .</span>
-        </h2>
-        <p >
-           
-            <p >
-                Your generous donations of clothing and other household goods make a big difference in the lives of America's Veterans and their families. The items you donate generate the majority of the funding to support local, state, and national programs of the Vietnam Veterans of America.
-                1)Schedule a donation pickup online
-                2)Leave clearly labeled bags or boxes of your donated items outside your house on the designated day
-                3)Our driver will pick up your donation , even it RAIN OR SHINE!!!
-            </pclass>
-    </div>
-    <hr class="featurette-divider">
-    <!-- four Featurette -->
-    <div class="featurette" id="contact">
-        <img class="featurette-image img-circle img-responsive pull-right" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRwqCVHnE8uMblEI0oFCP8HukZ5NdZMgSeQ-BUrX_5kpjfGh2V7KQ">
-        <h2 class="featurette-heading">
-            Homeless People
-            <span class="text-muted"></span>
-        </h2>
-        <p >Volunteers works to prevent and end homelessness through a range of support services including eviction prevention, emergency services, transitional housing and permanent affordable housing. Once we engage homeless individuals, including youth and families with children, we stay with them for as long as it takes to return them to self-sufficiency.</p>
-        <p>
-            We operate a number of innovative supportive services programs to support our efforts of ending homelessness
-            1)EMERGENCY SHELTER
-            2)DROP-IN CENTERS
-            3)PERMANENT SUPPORTIVE HOUSING
-            4)TRANSITIONAL HOUSING
-        </p>
-    </div>
-    <!-- Footer -->
-    <footer>
-        
-    </footer>
-
 </div>
-<!-- /.container -->
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>

@@ -26,9 +26,14 @@ namespace GoodQRma
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/half-slider.css"));
+                      "~/Content/the-firm..css"));
 
-
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                    "~/Content/bootstrap.css",
+                    "~/Content/site.css",
+                    "~/Content/the-firm.css",
+                     "~/Content/style.css"
+                                         ));
 
 
         }

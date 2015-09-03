@@ -1,25 +1,256 @@
 ﻿@{
     ViewBag.Title = "Main Page";
 }
-@*<div class="row">
-        <div class="col-lg-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>*@
 
+@model GoodQRma.Models.HelpForm
+
+<!-- Wrap all page content here -->
+    <div id="wrap">
+        <header class="masthead">
+            <div id="myCarousel" class="carousel slide">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="https://unsplash.com/photos/o6Y9E-DdG6w/download">
+                        <div class="container">
+                            <div class="carousel-caption">
+
+                                <h1>We Need Volunteers</h1>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="https://unsplash.com/photos/ob6O_xd67O0/download">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h2>Keep the Country clean</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="https://unsplash.com/photos/1eWaod96d3k/download">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h2>Use the technology</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.carousel-inner -->
+                @* <div class="logo"><h1><center>GoodQRma</center></h1></div>*@
+<!-- Controls -->
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+        </div>
+<!-- /.carousel -->
+    </header>
+<!-------------------------ABOUT-------------------------------------------------------------------------------------->
+
+    <div id="about">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 sub-head">
+                    <h1 data-wow-delay="0.3s" class="wow rollIn animated"><strong>ABOUT </strong></h1>
+                    @*<p class="sub-head"><h1> </p></h1>*@
+                    <p> The portal is a first-of-its-kind service that provides applicants with all that they need to find a volunteer opportunity, and serves to help them make the best match possible between their personal requirements and their choice of volunteer work throughout america’s vast land base and expansive resources. the portal is a free, fast, and efficient way to connect volunteers with natural and cultural resources agencies.</p>
+
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-4 col-md-4">
+                    <div class="media wow rotateIn animated" data-wow-delay="0.2s">
+                        <div class="pull-left">
+                            <i class="fa fa-recycle fa-4x  "></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Clean the community</h3>
+                            <p>
+                                How about a place where students or businesses could organize their own folks to clean up a section of their neighborhood and recycle the stuffs.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="media wow rotateIn animated" data-wow-delay="0.3s">
+                        <div class="pull-left">
+                            <i class="fa fa-history fa-4x  "></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">FoodBank</h3>
+                            <p>
+                                Our movers offer to pick up the unwanted, non-perishable food items from those who are moving and deliver it to their local food banks.
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-4 wow bounceInDown animated" style="padding: 10px;" data-wow-delay="0.6s">
+                    <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="item">
+                                <img src="https://www.bnl.gov/today/body_pics/2014/11/d0061114-candy-6thgrade-720px.jpg ">
+                            </div>
+
+                            <div class="item">
+                                <img src="http://dru-cdn.zipcar.com/sites/default/files/styles/content-portal-slideshow-slide/public/2_fi_GiveGab.jpg?itok=MB2wbXlT" class="img-thumbnail" alt="">
+                            </div>
+                            <div class="item">
+                                <img src=" http://www.homesinjacksonvillefl.com/img/volunteers.jpg">
+                            </div>
+                            <div class="item active">
+                                <img src="http://www.navy.mil/local/css/images/hi-res/131219-N-UX143-001.jpg">
+
+                            </div>
+                            <div class="item">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwvQJVbO2XUQjKBSjjP3_x7GeKpGkRDvyMOK0dajCUQXrNELIB">
+                            </div>
+                        </div>
+                        <!--INDICATORS-->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-slider" data-slide-to="0" class=""></li>
+                            <li data-target="#carousel-slider" data-slide-to="1" class=""></li>
+                            <li data-target="#carousel-slider" data-slide-to="2" class="active"></li>
+                            <li data-target="#carousel-slider" data-slide-to="2" class="active"></li>
+                            <li data-target="#carousel-slider" data-slide-to="2" class="active"></li>
+
+                        </ol>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4">
+
+                    <div class="media wow rotateIn animated" data-wow-delay="0.4s">
+                        <div class="pull-left">
+                            <i class="fa fa-star-o fa-4x  "></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Homeless people</h3>
+                            <p>
+                                volunteers works to prevent and end homelessness through a range of support services including eviction prevention, emergency services, transitional housing and permanent affordable housing.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="Donate head-text stuff" data-wow-delay="0.5s">
+                        <div class="pull-left">
+                            <i class="fa fa-life-ring fa-4x  "></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Organization</h3>
+                            <p>
+                                if physically going somewhere as a team is out of the question, volunteering as a team is still possible – if you’re willing to get creative. for instance, you could split your employees into teams and hold a contest for which team can bring in the most toys or canned goods. at the end of the campaign, hold a short – and fun – meeting to announce the winning team.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!---------------------------------Co<div class="container">
+
+    <!-- Portfolio Item Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+           
+            <h4><font face="Lucida Handwriting "><center>"Alone we can do so little,together we can do so much"</center></font></h4>
+
+            </h1>
+        </div>
+    </div>
+    <br /><br />
+    <!-- /.row -->
+    <!-- Portfolio Item Row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <img class="img-responsive" src="~/Images/Contact_Image.png" style="height:400">
+
+        </div>
+
+        <aside id="contact-info">
+            <dl>
+                <dt>Email</dt>
+                <dd><a href="mailto:info@GoodQRma.com" title="Click to send us an email">info@GoodQRma.com</a></dd>
+                <dt>Telephone</dt>
+                <dd><a href="tel:00306977447033" title="Click to call us">313-555-1212</a></
+                <dd>
+                <dt>Address</dt>
+                <dd>
+                    <address>
+                        1570 Woodward avenue<br />
+                        Detroit<br />
+                        MI<br />
+                        48084
+                    </address>
+                </dd>
+                <dd class="social-links">
+                    <a class="fb" href="http://www.facebook.com/GoodQRma" title="Find us on Facebook">Facebook</a> </br>
+                    <a class="tt" href="http://twitter.com/GoodQRma" title="Find us on Twitter">Twitter</a> </br>
+                </dd>
+            </dl></h4>
+        </aside>
+    </div>
+
+</div>
+<h3>How can I help you </h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.To,htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "form-control" }})
+                @Html.ValidationMessageFor(model => model.To, "" , new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.From,htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.From, new {htmlAttributes=new { @class = "form-control" }})
+                @Html.ValidationMessageFor(model => model.From)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Subject, new {htmlAttributes=new { @class = "form-control" }})
+                @Html.ValidationMessageFor(model => model.Subject)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Body,htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Body, new { htmlAttributes=new {@class = "form-control" }})
+                @Html.ValidationMessageFor(model=> model.Body)
+            </div>
+        </div><div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Send" />
+            </div>
+        </div>
+        }
+
+        @section Scripts{
+                    @Scripts.Render("~/bundles/jqueryval")
+        }
