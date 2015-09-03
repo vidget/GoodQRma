@@ -83,11 +83,12 @@
 
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=http://maps.google.com?q=@Model.address1,@Model.city,@Model.state,@Model.zipCode " ; float:right />
     <p>    
+        <br/>
     <div>
-        @using (Html.BeginForm("Details", "Event", FormMethod.Post, new { eID = Model.eventID, uID = User.Identity.GetUserId() }))
+        @using (Html.BeginForm("Details", "Event", FormMethod.Post, new { }))
         {
 
-            <input type="submit" name="Details" value="@ViewBag.Here" />
+            <input type="submit" class="btn btn-block btn-sm" name="Details" value="@ViewBag.Here" />
 
         }
     </div>

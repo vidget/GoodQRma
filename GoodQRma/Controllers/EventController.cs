@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using GoodQRma.Models;
 using Microsoft.AspNet.Identity;
+using System.Net.Mail;
 
 namespace GoodQRma.Controllers
 {
@@ -57,32 +58,64 @@ namespace GoodQRma.Controllers
             return View(@event);
         }
 
-         [HttpPost]
-         [ActionName("Details")]
-         public ActionResult ChangeAttendance(int? id)
+        //POST Details
+        [HttpPost]
+        [ActionName("Details")]
+        public ActionResult ChangeAttendance(int? id)
         {
+            //Get current user's id
             var idid = User.Identity.GetUserId();
+
+            //Find current event and current user
             ApplicationUser user = db.Users.Single(u => u.Id == idid);
             Event @event = db.Events.Single(e => e.eventID == id);
 
-             if(user.Events.Contains(@event))
-             {
-                 @event.Users.Remove(user);
-                 user.Events.Remove(@event);
-                 ViewBag.Here = "Volunteer!";
+            //SMTP Email set up
+            MailMessage msg = new MailMessage("goodqrma@gmail.com", @user.Email);
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            client.EnableSsl = true;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("goodqrma@gmail.com", "4goodqrma");
 
-                 db.SaveChanges();
-             }
-             else
-             {
-                 @event.Users.Add(user);
-                 user.Events.Add(@event);
-                 ViewBag.Here = "Leave";
 
-                 db.SaveChanges();
-             }
 
-             return View(@event);
+            if (user.Events.Contains(@event))
+            {
+                //Add user as attending event
+                @event.Users.Remove(user);
+                user.Events.Remove(@event);
+
+                //Change button to join event
+                ViewBag.Here = "Volunteer!";
+
+                //Save database changes
+                db.SaveChanges();
+
+                //Send confirmation email
+                msg.Subject = @event.name + " Confirmation";
+                msg.Body = "Hello, " + user.Name + "\n\nYou are no longer attending " + @event.name + " on " + @event.eventDate + " at " + @event.eventTime + "\n\nThank You, \nGoodQRma";
+                client.Send(msg);
+            }
+            else
+            {
+                //Add user as attending event
+                @event.Users.Add(user);
+                user.Events.Add(@event);
+
+                //Change button to leave event
+                ViewBag.Here = "Opt Out";
+
+                //Save database changes
+                db.SaveChanges();
+
+                //Send confirmation email
+                msg.Subject = @event.name + " Confirmation";
+                msg.Body = "Hello, " + user.Name + "\n\nYou are confirmed to attend " + @event.name + " on " + @event.eventDate + " at " + @event.eventTime + "\n\nThank You, \nGoodQRma";
+                client.Send(msg);
+            }
+
+            return View(@event);
         }
          
         // GET: Event/Create

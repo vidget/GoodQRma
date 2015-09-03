@@ -7,7 +7,8 @@ using System.ComponentModel.DataAnnotations;
 namespace GoodQRma.Models
 {
     public class File
-    {public int FileId { get; set; }
+    {
+        public int FileId { get; set; }
         [StringLength(255)]
         public string FileName { get; set; }
         [StringLength(100)]
