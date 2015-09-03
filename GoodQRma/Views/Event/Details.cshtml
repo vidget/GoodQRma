@@ -85,12 +85,14 @@
     <p>    
         <br/>
     <div>
-        @using (Html.BeginForm("Details", "Event", FormMethod.Post, new { }))
-        {
+        <center>
+            @using (Html.BeginForm("Details", "Event", FormMethod.Post, new { }))
+            {
 
-            <input type="submit" class="btn btn-block btn-sm" name="Details" value="@ViewBag.Here" />
+                <input type="submit" class="btn btn-block btn-sm" name="Details" value="@ViewBag.Here" />
 
-        }
+            }
+        </center>
     </div>
     <hr />
 

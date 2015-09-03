@@ -23,20 +23,16 @@ namespace GoodQRma.Controllers
 
           
         // GET: Event
-          [AllowAnonymous]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Events.ToList());
         }
 
         // GET: Event/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
-
-            
-
-
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -50,10 +46,15 @@ namespace GoodQRma.Controllers
                 return HttpNotFound();
             }
 
-            string currentUserID = User.Identity.GetUserId();
-            var currentUser = db.Users.Single(u => u.Id == currentUserID);
+            if (User.Identity.IsAuthenticated)
+            {
+                string currentUserID = User.Identity.GetUserId();
+                var currentUser = db.Users.Single(u => u.Id == currentUserID);
 
-            ViewBag.Here = currentUser.Events.Contains(@event) ? "Leave" : "Volunteer!";
+                ViewBag.Here = currentUser.Events.Contains(@event) ? "Leave" : "Volunteer!";
+            }
+            else
+                ViewBag.Here = "Volunteer!";
 
             return View(@event);
         }
@@ -63,59 +64,65 @@ namespace GoodQRma.Controllers
         [ActionName("Details")]
         public ActionResult ChangeAttendance(int? id)
         {
-            //Get current user's id
-            var idid = User.Identity.GetUserId();
-
-            //Find current event and current user
-            ApplicationUser user = db.Users.Single(u => u.Id == idid);
-            Event @event = db.Events.Single(e => e.eventID == id);
-
-            //SMTP Email set up
-            MailMessage msg = new MailMessage("goodqrma@gmail.com", @user.Email);
-            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-            client.EnableSsl = true;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("goodqrma@gmail.com", "4goodqrma");
-
-
-
-            if (user.Events.Contains(@event))
+            if (User.Identity.IsAuthenticated)
             {
-                //Add user as attending event
-                @event.Users.Remove(user);
-                user.Events.Remove(@event);
+                //Get current user's id
+                var idid = User.Identity.GetUserId();
 
-                //Change button to join event
-                ViewBag.Here = "Volunteer!";
+                //Find current event and current user
+                ApplicationUser user = db.Users.Single(u => u.Id == idid);
+                Event @event = db.Events.Single(e => e.eventID == id);
 
-                //Save database changes
-                db.SaveChanges();
+                //SMTP Email set up
+                MailMessage msg = new MailMessage("goodqrma@gmail.com", @user.Email);
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                client.EnableSsl = true;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential("goodqrma@gmail.com", "4goodqrma");
 
-                //Send confirmation email
-                msg.Subject = @event.name + " Confirmation";
-                msg.Body = "Hello, " + user.Name + "\n\nYou are no longer attending " + @event.name + " on " + @event.eventDate + " at " + @event.eventTime + "\n\nThank You, \nGoodQRma";
-                client.Send(msg);
+
+
+                if (user.Events.Contains(@event))
+                {
+                    //Add user as attending event
+                    @event.Users.Remove(user);
+                    user.Events.Remove(@event);
+
+                    //Change button to join event
+                    ViewBag.Here = "Volunteer!";
+
+                    //Save database changes
+                    db.SaveChanges();
+
+                    //Send confirmation email
+                    msg.Subject = @event.name + " Confirmation";
+                    msg.Body = "Hello, " + user.Name + "\n\nYou are no longer attending " + @event.name + " on " + @event.eventDate + " at " + @event.eventTime + "\n\nThank You, \nGoodQRma";
+                    client.Send(msg);
+                }
+                else
+                {
+                    //Add user as attending event
+                    @event.Users.Add(user);
+                    user.Events.Add(@event);
+
+                    //Change button to leave event
+                    ViewBag.Here = "Opt Out";
+
+                    //Save database changes
+                    db.SaveChanges();
+
+                    //Send confirmation email
+                    msg.Subject = @event.name + " Confirmation";
+                    msg.Body = "Hello, " + user.Name + "\n\nYou are confirmed to attend " + @event.name + " on " + @event.eventDate + " at " + @event.eventTime + "\n\nThank You, \nGoodQRma";
+                    client.Send(msg);
+                }
+
+                return View(@event);
             }
             else
-            {
-                //Add user as attending event
-                @event.Users.Add(user);
-                user.Events.Add(@event);
-
-                //Change button to leave event
-                ViewBag.Here = "Opt Out";
-
-                //Save database changes
-                db.SaveChanges();
-
-                //Send confirmation email
-                msg.Subject = @event.name + " Confirmation";
-                msg.Body = "Hello, " + user.Name + "\n\nYou are confirmed to attend " + @event.name + " on " + @event.eventDate + " at " + @event.eventTime + "\n\nThank You, \nGoodQRma";
-                client.Send(msg);
-            }
-
-            return View(@event);
+                return View("Login", "Account");
+            
         }
          
         // GET: Event/Create
