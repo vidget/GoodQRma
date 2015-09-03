@@ -194,17 +194,9 @@
     <Compile Include="Migrations\201509011900329_init.Designer.cs">
       <DependentUpon>201509011900329_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201509020338482_userIdPhotoString.cs" />
-    <Compile Include="Migrations\201509020338482_userIdPhotoString.Designer.cs">
-      <DependentUpon>201509020338482_userIdPhotoString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201509020523269_Event UserID IntToString.cs" />
-    <Compile Include="Migrations\201509020523269_Event UserID IntToString.Designer.cs">
-      <DependentUpon>201509020523269_Event UserID IntToString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201509022025521_changedModels.cs" />
-    <Compile Include="Migrations\201509022025521_changedModels.Designer.cs">
-      <DependentUpon>201509022025521_changedModels.cs</DependentUpon>
+    <Compile Include="Migrations\201509030215488_AddFile.cs" />
+    <Compile Include="Migrations\201509030215488_AddFile.Designer.cs">
+      <DependentUpon>201509030215488_AddFile.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -322,14 +314,8 @@
     <EmbeddedResource Include="Migrations\201509011900329_init.resx">
       <DependentUpon>201509011900329_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509020338482_userIdPhotoString.resx">
-      <DependentUpon>201509020338482_userIdPhotoString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509020523269_Event UserID IntToString.resx">
-      <DependentUpon>201509020523269_Event UserID IntToString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509022025521_changedModels.resx">
-      <DependentUpon>201509022025521_changedModels.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201509030215488_AddFile.resx">
+      <DependentUpon>201509030215488_AddFile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
