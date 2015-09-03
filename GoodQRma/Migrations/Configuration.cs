@@ -140,9 +140,9 @@ namespace GoodQRma.Migrations
             }
 
 
-          
 
-          
+
+
 
 
 
@@ -150,70 +150,77 @@ namespace GoodQRma.Migrations
                 {
                     new Event
                     {
-                        eventID=1,
                         image=0,
-                        userID="1",   
+                        userID="0a29ff8f-834c-46f6-b047-2ee3f10f4b9b",   
                         name="Rouge River Clean-Up",
-                        description ="Come help us clean up the old Rouge River, volunteers will be helping to remove old shopping carts and garbage from the river. Dress warm and bring extra dry clothes", 
+                        description ="Come help us clean up the old Rouge River, volunteers will be helping to remove old shopping carts and garbage from the river. Dress warm and bring extra dry clothes",
+                        eventType="Clean Up",
                         eventDate=DateTime.Now, 
                         eventTime=DateTime.Now, 
-                        eventType="Clean Up",
+                        numVolunteersNeeded = 12,
+                        
                         address1 ="22051 Cherry Hill Street",
+                        city = "Dearborn",
                         state ="Michigan",
                         zipCode="48124",
                         country="USA",
                         contact="Sally Jones",
                         phone="313-792-9900",
                         eventURL="http://www.therouge.org/"
+                    },
+               
+
+                    new Event
+                    {
+                        image=0,
+                        userID="0a29ff8f-834c-46f6-b047-2ee3f10f4b9b",
+                        name="Summer Stevens Clean Up Parade",
+                        description ="Were working to make Dearborn a cleaner place to live. We organize clean up groups on the day to help pick up trash at Summer Stevens park", 
+                        eventType="Clean Up",
+                        eventDate=DateTime.Now, 
+                        eventTime=DateTime.Now, 
+                        numVolunteersNeeded = 22,
+                        
+                        address1 ="2600 Stephens St",
+                        state ="Michigan",
+                        zipCode="48124",
+                        country="USA",
+                        contact="Mike Allen",
+                        phone="313-555-4567",
+                        eventURL="http://www.cityofdearborn.org/community/recreation-parks/outdoor-pools"
+                    },
+
+                     new Event
+                    {
+                      
+
+                        image=0,
+                        userID="0a29ff8f-834c-46f6-b047-2ee3f10f4b9b",
+                        name="Detroit Rescue Misson",
+                        description ="We need help at our soup kitchen feeding the hungry", 
+                        eventDate=DateTime.Now, 
+                        eventTime=DateTime.Now, 
+                        numVolunteersNeeded = 8,
+                        eventType="Homeless",
+                        address1 ="150 Stimson St",
+                        city="Detroit",
+                        state ="Michigan",
+                        zipCode="48201",
+                        country="USA",
+                        contact="Mike Allen",
+                        phone="(313) 993-4700",
+                        eventURL="http://drmm.org/"
                     }
 
-            //        new Event
-            //        {
-            //            eventID=2,
-            //            //image=0,
-            //            userID="1",
-            //            name="Summer Stevens Clean Up Parade",
-            //            description ="Were working to make Dearborn a cleaner place to live. We organize clean up groups on the day to help pick up trash at Summer Stevens park", 
-            //            eventDate=DateTime.Now, 
-            //            eventTime=DateTime.Now, 
-            //            eventType="Clean Up",
-            //            address1 ="2600 Stephens St",
-            //            state ="Michigan",
-            //            zipCode="48124",
-            //            country="USA",
-            //            contact="Mike Allen",
-            //            phone="313-555-4567",
-            //            eventURL="http://www.cityofdearborn.org/community/recreation-parks/outdoor-pools"
-            //        },
-
-                                        
-            //        new Event
-            //        {   
-            //            eventID=3,
-            //            //image=0,
-            //            userID="2",
-            //            name="Detroit Rescue Misson",
-            //            description ="We need help at our soup kitchen feeding the hungry", 
-            //            eventDate=DateTime.Now, 
-            //            eventTime=DateTime.Now, 
-            //            eventType="Homeless",
-            //            address1 ="150 Stimson St",
-            //            city="Detroit",
-            //            state ="Michigan",
-            //            zipCode="48201",
-            //            country="USA",
-            //            contact="Mike Allen",
-            //            phone="(313) 993-4700",
-            //            eventURL="http://drmm.org/"
-            //        }
-
-            //    };
+                                       
+            
+                };
 
 
-            //events.ForEach(p => context.Events.AddOrUpdate(s => s.eventID, p));
+            events.ForEach(p => context.Events.AddOrUpdate(s => s.eventID, p));
 
 
-            //context.SaveChanges();
+            context.SaveChanges();
         }
     }
 }
