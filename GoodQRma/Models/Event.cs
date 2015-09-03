@@ -54,7 +54,7 @@ namespace GoodQRma.Models
             public virtual DateTime eventTime { get; set; }
 
            // [Required]
-            [Display(Name = "Number of Volunteers Needed")]
+            [Display(Name = "Volunteers Needed")]
             public virtual int? numVolunteersNeeded { get; set; }
 
             //[Required]
