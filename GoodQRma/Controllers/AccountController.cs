@@ -153,7 +153,11 @@ namespace GoodQRma.Controllers
         [AllowAnonymous]
         public ActionResult UserProfile(ApplicationUser model) 
         {
-            return View();
+
+
+            var currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            return View(currentUser);
         }
 
         //

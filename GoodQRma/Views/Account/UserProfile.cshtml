@@ -1,22 +1,24 @@
 ﻿@model GoodQRma.Models.ApplicationUser
+@using Microsoft.AspNet.Identity;
 
-@{
-    ViewBag.Title = "UserProfile";
-}
-
-<h2>UserProfile</h2>
+<h2>@Html.DisplayFor(model => User.Identity.Name)</h2>
 
 <div>
     <h4>ApplicationUser</h4>
     <hr />
     <dl class="dl-horizontal">
+
+        
+
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => User.Identity.Name)
         </dd>
+
+        
 
         <dt>
             @Html.DisplayNameFor(model => model.Address)
