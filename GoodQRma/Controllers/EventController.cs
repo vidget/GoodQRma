@@ -127,7 +127,6 @@ namespace GoodQRma.Controllers
          
         // GET: Event/Create
         [Authorize (Roles="Member")]
-        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -139,7 +138,6 @@ namespace GoodQRma.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Member")]
-        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "eventID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,city,state,zipCode,country,contact,phone,eventURL")] Event @event, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
