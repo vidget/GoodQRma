@@ -127,6 +127,7 @@ namespace GoodQRma.Controllers
          
         // GET: Event/Create
         [Authorize (Roles="Member")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -137,6 +138,8 @@ namespace GoodQRma.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Member")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "eventID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,city,state,zipCode,country,contact,phone,eventURL")] Event @event, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
@@ -175,7 +178,8 @@ namespace GoodQRma.Controllers
             return View(@event);
         }
 
-        // GET: Event/Edit/5
+        [Authorize(Roles = "Member")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -195,6 +199,8 @@ namespace GoodQRma.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Member")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "eventID,userID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,city,state,zipCode,country,contact,phone,eventURL")] Event @event)
         {
             if (ModelState.IsValid)
@@ -228,7 +234,8 @@ namespace GoodQRma.Controllers
         }
 
 
-        // GET: Event/Delete/5
+        [Authorize(Roles = "Member")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -19,6 +19,7 @@ namespace GoodQRma.Controllers
         public RoleController()
         {
             context = new ApplicationDbContext();
+            
         }
 
 
@@ -34,6 +35,9 @@ namespace GoodQRma.Controllers
         {
             var Roles = context.Roles.ToList();
             return View(Roles);
+
+
+
         }
 
         /// <summary>
@@ -60,7 +64,7 @@ namespace GoodQRma.Controllers
         {
             context.Roles.Add(Role);
             context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","_LayoutADMIN");
         }
 
 
