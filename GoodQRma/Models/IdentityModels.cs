@@ -60,6 +60,8 @@ namespace GoodQRma.Models
                 .ToTable("AttendanceLog"));
         }
 
+        public System.Data.Entity.DbSet<GoodQRma.Models.UserViewModel> UserViewModels { get; set; }
+
 
 
 
