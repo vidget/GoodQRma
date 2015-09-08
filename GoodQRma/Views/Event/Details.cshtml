@@ -228,7 +228,17 @@
 <p>
     <center>
 
-        @Html.ActionLink("Edit", "Edit", new { id = Model.eventID }) |
+
+        @*<a href="~/Views/Admin/Index.cshtml">~/Views/Admin/Index.cshtml</a>*@
+        @if (Model.userID == User.Identity.GetUserId())
+        {
+            @Html.ActionLink("Edit |", "Edit", new { id = Model.eventID }) 
+            @Html.ActionLink(" Delete |", "Delete", new { id = Model.eventID })
+        }
+
+
+
+       
         @Html.ActionLink("Back to List", "Index") |
         @Html.ActionLink("Event Posters", "EventPoster", new { id = Model.eventID })
     </center>

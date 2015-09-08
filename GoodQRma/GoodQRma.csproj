@@ -320,6 +320,7 @@
     <Content Include="Views\UserViewModels\Details.cshtml" />
     <Content Include="Views\UserViewModels\Edit.cshtml" />
     <Content Include="Views\UserViewModels\Index.cshtml" />
+    <Content Include="Views\Event\AccessDenied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

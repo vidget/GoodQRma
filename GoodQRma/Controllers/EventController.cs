@@ -132,6 +132,14 @@ namespace GoodQRma.Controllers
             return View();
         }
 
+
+        [Authorize(Roles = "Member")]
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
+
+
         // POST: Event/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -177,19 +185,36 @@ namespace GoodQRma.Controllers
         }
 
         [Authorize(Roles = "Member")]
-        [Authorize(Roles = "Admin")]
+      
         public ActionResult Edit(int? id)
         {
+
+
+
+
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Event @event = db.Events.Find(id);
+
+
+
+
             if (@event == null)
             {
                 return HttpNotFound();
             }
             return View(@event);
+
+
+
+
+
+
+
+
         }
 
         // POST: Event/Edit/5
@@ -198,16 +223,41 @@ namespace GoodQRma.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Member")]
-        [Authorize(Roles = "Admin")]
+       
         public ActionResult Edit([Bind(Include = "eventID,userID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,city,state,zipCode,country,contact,phone,eventURL")] Event @event)
         {
-            if (ModelState.IsValid)
+
+
+           
+            if
+                (@event.userID == User.Identity.GetUserId())
             {
-                db.Entry(@event).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                if (ModelState.IsValid)
+                {
+                    db.Entry(@event).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(@event);
+
+
+             
             }
-            return View(@event);
+            else
+
+                return RedirectToAction("AccessDenied", "Event");
+
+
+
+
+
+
+
+
+
+
+            
         }
 
 
@@ -233,7 +283,6 @@ namespace GoodQRma.Controllers
 
 
         [Authorize(Roles = "Member")]
-        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -253,10 +302,19 @@ namespace GoodQRma.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Event @event = db.Events.Find(id);
-            db.Events.Remove(@event);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+
+             Event @event = db.Events.Find(id);
+            if
+                (@event.userID==User.Identity.GetUserId())
+            {
+
+                db.Events.Remove(@event);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+           
+            return RedirectToAction("AccessDenied","Event");
         }
 
         protected override void Dispose(bool disposing)

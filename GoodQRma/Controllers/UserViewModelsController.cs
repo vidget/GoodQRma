@@ -114,6 +114,9 @@ namespace GoodQRma.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+             
+
             UserViewModel userViewModel = db.UserViewModels.Find(id);
             if (userViewModel == null)
             {
@@ -121,6 +124,16 @@ namespace GoodQRma.Controllers
             }
             return View(userViewModel);
         }
+
+
+
+         
+
+
+
+
+
+
 
         // POST: UserViewModels/Delete/5
         [HttpPost, ActionName("Delete")]
