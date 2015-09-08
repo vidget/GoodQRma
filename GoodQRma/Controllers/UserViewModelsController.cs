@@ -17,23 +17,26 @@ using System.Web.ModelBinding;
 
 namespace GoodQRma.Controllers
 {
+
+
+     [Authorize]
     public class UserViewModelsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: UserViewModels
 
-         
 
+          [Authorize(Roles = "Admin")]
             public ActionResult Index()
             {
                 var allusers = db.Users.ToList();
                 return View (allusers);
      
             }
-    
 
-        // GET: UserViewModels/Details/5
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -48,7 +51,7 @@ namespace GoodQRma.Controllers
             return View(userViewModel);
         }
 
-        // GET: UserViewModels/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -71,7 +74,7 @@ namespace GoodQRma.Controllers
             return View(userViewModel);
         }
 
-        // GET: UserViewModels/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -91,6 +94,7 @@ namespace GoodQRma.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "UserViewModelId,Username,Roles")] UserViewModel userViewModel)
         {
             if (ModelState.IsValid)
@@ -103,6 +107,7 @@ namespace GoodQRma.Controllers
         }
 
         // GET: UserViewModels/Delete/5
+          [Authorize(Roles = "Admin")]
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -120,6 +125,7 @@ namespace GoodQRma.Controllers
         // POST: UserViewModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(string id)
         {
             UserViewModel userViewModel = db.UserViewModels.Find(id);

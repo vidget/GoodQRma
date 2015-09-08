@@ -91,9 +91,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.description)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.eventType)
             </th>
@@ -127,9 +125,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.phone)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eventURL)
-            </th>
+           
             <th></th>
         </tr>
 
@@ -141,9 +137,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.name)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.description)
-                </td>
+               
                 <td>
                     @Html.DisplayFor(modelItem => item.eventType)
                 </td>
@@ -177,9 +171,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.phone)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.eventURL)
-                </td>
+                
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.eventID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.eventID }) |
