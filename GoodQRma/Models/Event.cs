@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using GoodQRma.Models;
 using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
 
 namespace GoodQRma.Models
 {
