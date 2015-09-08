@@ -8,25 +8,72 @@ using System.Web;
 using System.Web.Mvc;
 using GoodQRma.Models;
 using Microsoft.AspNet.Identity;
+using PagedList.Mvc;
+using PagedList;
 using System.Net.Mail;
+
 
 namespace GoodQRma.Controllers
 {
 
-     [Authorize]
+    [Authorize]
     public class EventController : Controller
     {
 
-       
-         
-        ApplicationDbContext db = new ApplicationDbContext(); 
+        ApplicationDbContext db = new ApplicationDbContext();
 
-          
+
         // GET: Event
         [AllowAnonymous]
-        public ActionResult Index()
+
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Events.ToList());
+            ViewBag.currentSort = sortOrder;
+            ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var events = from v in db.Events
+                         select v;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                events = events.Where(v => v.eventType.Contains(searchString));
+
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    events = events.OrderByDescending(v => v.eventType);
+                    break;
+                case "Date":
+                    events = events.OrderBy(v => v.eventDate);
+                    break;
+                case "date_desc":
+                    events = events.OrderByDescending(v => v.eventDate);
+                    break;
+                default:
+                    events = events.OrderBy(v => v.eventType);
+                    break;
+
+            }
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+
+
+            return View(events.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Event/Details/5
@@ -122,36 +169,27 @@ namespace GoodQRma.Controllers
             }
             else
                 return View("Login", "Account");
-            
+
         }
-         
+
         // GET: Event/Create
-        [Authorize (Roles="Member")]
+        [Authorize(Roles = "Member")]
         public ActionResult Create()
         {
             return View();
         }
-
-
-        [Authorize(Roles = "Member")]
-        public ActionResult AccessDenied()
-        {
-            return View();
-        }
-
 
         // POST: Event/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Member")]
         public ActionResult Create([Bind(Include = "eventID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,city,state,zipCode,country,contact,phone,eventURL")] Event @event, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
 
-                
+
                 //Ties the logged in USER to the created EVENT
                 @event.userID = User.Identity.GetUserId();
 
@@ -175,7 +213,7 @@ namespace GoodQRma.Controllers
                 db.SaveChanges();
 
 
-                
+
 
 
                 return RedirectToAction("Index");
@@ -184,37 +222,19 @@ namespace GoodQRma.Controllers
             return View(@event);
         }
 
-        [Authorize(Roles = "Member")]
-      
+        // GET: Event/Edit/5
         public ActionResult Edit(int? id)
         {
-
-
-
-
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Event @event = db.Events.Find(id);
-
-
-
-
             if (@event == null)
             {
                 return HttpNotFound();
             }
             return View(@event);
-
-
-
-
-
-
-
-
         }
 
         // POST: Event/Edit/5
@@ -222,42 +242,15 @@ namespace GoodQRma.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Member")]
-       
         public ActionResult Edit([Bind(Include = "eventID,userID,image,name,description,eventType,eventDate,eventTime,numVolunteersNeeded,address1,city,state,zipCode,country,contact,phone,eventURL")] Event @event)
         {
-
-
-           
-            if
-                (@event.userID == User.Identity.GetUserId())
+            if (ModelState.IsValid)
             {
-
-                if (ModelState.IsValid)
-                {
-                    db.Entry(@event).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                return View(@event);
-
-
-             
+                db.Entry(@event).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            else
-
-                return RedirectToAction("AccessDenied", "Event");
-
-
-
-
-
-
-
-
-
-
-            
+            return View(@event);
         }
 
 
@@ -277,12 +270,12 @@ namespace GoodQRma.Controllers
                 return HttpNotFound();
             }
 
-            
+
             return View("EventPoster", "_Layout2", @event);
         }
 
 
-        [Authorize(Roles = "Member")]
+        // GET: Event/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -302,19 +295,10 @@ namespace GoodQRma.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-
-             Event @event = db.Events.Find(id);
-            if
-                (@event.userID==User.Identity.GetUserId())
-            {
-
-                db.Events.Remove(@event);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            else
-           
-            return RedirectToAction("AccessDenied","Event");
+            Event @event = db.Events.Find(id);
+            db.Events.Remove(@event);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
