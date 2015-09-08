@@ -18,10 +18,11 @@
             <!-- Portfolio Item Row -->
             <div class="row">
                 <div class="col-md-4">
-                    <img src="~/Images/qrcode.png" />
+                    <img src="~/Images/Contact_Image.png" , height="400" width="500"  float: left>
 
                 </div>
-
+            </div>
+            <div>
                 <aside id="contact-info">
                     <dl>
                         <dt>Email</dt>
@@ -42,26 +43,26 @@
                             <a class="fb" href="http://www.facebook.com/GoodQRma" title="Find us on Facebook">Facebook</a> </br>
                             <a class="tt" href="http://twitter.com/GoodQRma" title="Find us on Twitter">Twitter</a> </br>
                         </dd>
-                    </dl></h4>
+                    </dl>
                 </aside>
             </div>
 
         </div>
 
-        </font><
+        </font>
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
 
-            <div class="form-group">
+            @*<div class="form-group">
 
                 @Html.LabelFor(model => model.To, htmlAttributes: new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
                 </div>
-            </div>
+            </div>*@
             <div class="form-group">
                 @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
