@@ -241,9 +241,6 @@ th {
   .navbar {
     display: none;
   }
-  .navbar-nav li a{
-      line-height: 30px;
-  }
   .btn > .caret,
   .dropup > .btn > .caret {
     border-top-color: #000 !important;

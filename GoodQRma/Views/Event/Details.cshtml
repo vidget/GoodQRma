@@ -230,7 +230,7 @@
 
 
         @*<a href="~/Views/Admin/Index.cshtml">~/Views/Admin/Index.cshtml</a>*@
-        @if (Model.userID == User.Identity.GetUserId())
+        @if (Model.userID == User.Identity.GetUserId() || User.IsInRole("Admin"))
         {
             @Html.ActionLink("Edit |", "Edit", new { id = Model.eventID }) 
             @Html.ActionLink(" Delete |", "Delete", new { id = Model.eventID })

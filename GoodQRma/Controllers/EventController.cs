@@ -93,7 +93,7 @@ namespace GoodQRma.Controllers
                 return HttpNotFound();
             }
 
-            if (User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
             {
                 string currentUserID = User.Identity.GetUserId();
                 var currentUser = db.Users.Single(u => u.Id == currentUserID);
@@ -296,8 +296,13 @@ namespace GoodQRma.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Event @event = db.Events.Find(id);
-            db.Events.Remove(@event);
-            db.SaveChanges();
+
+            if (@event.userID == User.Identity.GetUserId() || User.IsInRole("Admin"))
+            {
+                db.Events.Remove(@event);
+                db.SaveChanges();
+            }
+            
             return RedirectToAction("Index");
         }
 
