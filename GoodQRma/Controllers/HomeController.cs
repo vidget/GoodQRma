@@ -46,7 +46,7 @@ namespace GoodQRma.Controllers
             if (hform.Body != null && hform.From != null)
             {
                 MailMessage mail = new MailMessage();
-                mail.To.Add(hform.To);
+                mail.To.Add("goodqrma@gmail.com");
                 mail.From = new MailAddress(hform.From);
                 mail.Subject = hform.Subject;
                 string Body = hform.Body;
