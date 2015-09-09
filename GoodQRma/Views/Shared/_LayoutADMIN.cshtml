@@ -19,10 +19,15 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <img src="~/Images/GoodQRma_logo.png" />
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                    <img src="~/Images/GoodQRma_logo.png" title="title" alt="additional title" />
+                </a>
 
-                @Html.ActionLink("goodQRma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
@@ -46,7 +51,7 @@
         <footer>
             <center>
                 <p>&copy; @DateTime.Now.Year - GoodQRma.com</p>
-                <img src="~/Images/GoodQRma_logo.png" />
+                <img src="~/Images/GoodQRma_logo2.png" />
             </center>
         </footer>
     </div>

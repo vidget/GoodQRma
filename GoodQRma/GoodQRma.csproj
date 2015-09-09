@@ -247,6 +247,7 @@
     <Content Include="Images\GoodQRmaBANNER3.png" />
     <Content Include="Images\GoodQRmaLOGO_Transparent_Medium.png" />
     <Content Include="Images\GoodQRma_logo.png" />
+    <Content Include="Images\GoodQRma_logo2.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Browsers\qt.browser" />
