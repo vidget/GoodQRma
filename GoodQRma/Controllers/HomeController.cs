@@ -40,10 +40,10 @@ namespace GoodQRma.Controllers
          
        
          [HttpPost] 
-        public ViewResult Contact(GoodQRma.Models.HelpForm hform)
+        public ActionResult Contact(GoodQRma.Models.HelpForm hform)
         {
            
-            if (ModelState.IsValid)
+            if (hform.Body != null && hform.From != null)
             {
                 MailMessage mail = new MailMessage();
                 mail.To.Add(hform.To);
@@ -62,12 +62,12 @@ namespace GoodQRma.Controllers
                 ("goodqrma@gmail.com", "4goodqrma");// Enter seders User name and password  
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
-                return View("Index", hform);
+                return RedirectToAction("Index");
             }
 
             else
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
     }
