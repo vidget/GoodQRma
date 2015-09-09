@@ -4,7 +4,7 @@
     ViewBag.Title = "Contact us";
 }
 <section>
-    <div id=" about">
+    <div id="about">
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 sub-head">
@@ -13,30 +13,29 @@
                     </h1>
                 </div>
             </div>
-
+            <br/>
             <!-- /.row -->
             <!-- Portfolio Item Row -->
-            <div class="row">
+            <div align="left">
                 <div class="col-md-4">
-                    <img src="~/Images/Contact_Image.png" , height="400" width="500"  float: left>
+                    <img src="~/Images/Contact_Image.png" , width="600">
 
                 </div>
             </div>
-            <div>
+            <div align="center">
                 <aside id="contact-info">
                     <dl>
-                        <dt>Email</dt>
+                        <br/>
+                        <dt><h4>Email</h4></dt>
                         <dd><a href="mailto:info@GoodQRma.com" title="Click to send us an email">info@GoodQRma.com</a></dd>
-                        <dt>Telephone</dt>
+                        <dt><h4>Telephone</h4></dt>
                         <dd><a href="tel:00306977447033" title="Click to call us">313-555-1212</a></
                         <dd>
-                        <dt>Address</dt>
+                        <dt><h4>Address</h4></dt>
                         <dd>
                             <address>
-                                1570 Woodward avenue<br />
-                                Detroit<br />
-                                MI<br />
-                                48084
+                                1570 Woodward Avenue<br />
+                                Detroit, MI 48084
                             </address>
                         </dd>
                         <dd class="social-links">
@@ -63,32 +62,35 @@
                     @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
                 </div>
             </div>*@
-            <div class="form-group">
-                @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.From)
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Subject)
-                </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Body)
-                </div>
-            </div><div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" class="btn btn-default" value="Send" />
-                </div>
+        <div class="form-group">
+            <h2>Send us an email!</h2>
+            @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.From)
             </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Subject)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Body)
+            </div>
+        </div><div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Send" />
+            </div>
+        </div>
 
         }
 
