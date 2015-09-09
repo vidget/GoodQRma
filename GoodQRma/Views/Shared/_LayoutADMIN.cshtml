@@ -19,11 +19,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
-                    <img src="~/Images/GoodQRma_logo.png" title="title" alt="additional title" />
-                </a>
-
-
+               
 
 
             </div>
@@ -32,6 +28,12 @@
                 <ul class="nav navbar-nav">
 
 
+                    <li>
+                        <a href="@Url.Action("Index", "Home")" class="pull-left">
+                            <img src="~/Images/GoodQRma_logo.png" title="title" alt="additional title" />
+                        </a>
+                    </li>
+                                      
                     <li>@Html.ActionLink("ADMIN User", "Index", "UserViewModels")</li>
                     <li>@Html.ActionLink("ADMIN Event", "Index", "Admin")</li>
 
