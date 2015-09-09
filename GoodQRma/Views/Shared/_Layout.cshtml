@@ -22,16 +22,28 @@
              
             </div>
            
+
+
+
+
+
+
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">               
-                   
-
+                   <span>
                     <li>
                         <a href="@Url.Action("Index", "Home")" class="pull-left">
                             <img src="~/Images/GoodQRma_logo.png" title="title" alt="additional title" />
                         </a>
                     </li>
+                    </span>
+                                    
+                </ul>
 
+                <ul class="nav navbar-nav">
+
+                    
                     <li>@Html.ActionLink("View Event", "Index", "Event") </li>
                     <li>@Html.ActionLink("Create Event", "Create", "Event")</li>
 
@@ -40,10 +52,11 @@
 
                     <li>@Html.ActionLink("My Profile", "UserProfile", "Account")</li>
 
-                   
-                   
-
                 </ul>
+
+
+
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
