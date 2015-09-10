@@ -22,7 +22,7 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script>
         var list1 = [];
-        var bounds = new google.maps.LatLng();
+        //var bounds = new google.maps.LatLng();
         function listToArray() {
             @foreach(var x in addresses)
         {
@@ -44,7 +44,7 @@
             map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
             setMarkers();
 
-            var bounds = new google.maps.LatLngBounds();
+            //var bounds = new google.maps.LatLngBounds();
             //map.fitBounds(bounds);
             var infoWindow = new google.maps.InfoWindow({ map: map });
             // Try HTML5 geolocation.
