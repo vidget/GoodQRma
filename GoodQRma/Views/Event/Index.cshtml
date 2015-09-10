@@ -56,12 +56,13 @@
                     };
                     infoWindow.setPosition(pos);
                     infoWindow.setContent('You Are Here.');
-                    map.setCenter(pos);
+                    
                     var marker = new google.maps.Marker({
                         map: map,
                         position: (pos),
                         animation: google.maps.Animation.BOUNCE
                     });
+                    map.setCenter(pos);
 
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
