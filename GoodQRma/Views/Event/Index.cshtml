@@ -45,7 +45,7 @@
             setMarkers();
 
             var bounds = new google.maps.LatLngBounds();
-            map.fitBounds(bounds);
+            //map.fitBounds(bounds);
             var infoWindow = new google.maps.InfoWindow({ map: map });
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
@@ -57,6 +57,12 @@
                     infoWindow.setPosition(pos);
                     infoWindow.setContent('You Are Here.');
                     map.setCenter(pos);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: (pos),
+                        animation: google.maps.Animation.BOUNCE
+                    });
+
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 });
